@@ -1,0 +1,31 @@
+name: Chezburgr
+main: me.Chezburgr.essentials.Main
+version: 2.2
+commands:
+  locate:
+    description: Returns the loacation of the given player
+    usage: /locate <player>
+  killplayer:
+    description: Kills the given player
+    usage: /killplayer <player>
+  getrekt:
+    description: Used for rekking noobs
+    usage: /getrekt [player]
+  ping:
+    description: Tests the lag of the server
+    usage: /ping
+  afk:
+    description: Tell the server that you're away
+    usage: /afk [player]
+  noafk:
+    description: Tell the server that you're no longer away
+    usage: /noafk [player]
+  speakfor:
+    description: Speak through the voice of another player
+    usage: /speakfor <player> <message>
+  forcechat:
+    description: Force a chat message or command as another player
+    usage: /forcechat <player> <message>
+  takedown:
+    description: shut down rouge players and take their inventory
+    usage: /takedown <player> ['ban']
