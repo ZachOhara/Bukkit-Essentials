@@ -1,4 +1,4 @@
-package chezburgr.essentials.dataform;
+package dataform;
 
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -19,7 +19,7 @@ public class CommandInstance {
 	
 	public CommandInstance(CommandSender rawSender, String command, String[] args) {
 		this.rawSender = rawSender;
-		this.name = command;
+		this.name = command.toLowerCase();
 		this.args = args;
 		this.targetGiven = false;
 		this.targetName = "";
@@ -36,11 +36,12 @@ public class CommandInstance {
 		}
 	}
 	
-	public void setTarget(Player target) {
+	public Player setTarget(Player target) {
 		this.target = target;
 		this.targetName = target.getName().toLowerCase();
 		this.targetGiven = true;
 		this.fullTargetName = target.getName();
+		return this.target;
 	}
 
 }

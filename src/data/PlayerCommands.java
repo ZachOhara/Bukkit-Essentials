@@ -1,13 +1,37 @@
-package chezburgr.essentials.data;
+package data;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 
-import chezburgr.essentials.dataform.CommandInstance;
-import chezburgr.essentials.main.Main;
+import dataform.CommandInstance;
 
 public class PlayerCommands {
+	
+	public static boolean doCommand(CommandInstance instance) {
+		switch(instance.name) {
+		case "locate":
+			return locate(instance);
+		case "takedown":
+			return takedown(instance);
+		case "killplayer":
+			return killplayer(instance);
+		case "getrekt":
+			return getrekt(instance);
+		case "ping":
+			return ping(instance);
+		case "afk":
+			return afk(instance, true);
+		case "noafk":
+			return afk(instance, false);
+		case "speakfor":
+			return speakfor(instance);
+		case "forcechat":
+			return forcechat(instance);
+		default:
+			return false;
+		}
+	}
 	
 	public static boolean locate(CommandInstance instance) {
 		Location loc = instance.target.getLocation();
@@ -22,7 +46,7 @@ public class PlayerCommands {
 		instance.target.teleport(senderLoc);
 		instance.target.setHealth((double)0);
 		String[] bans = {"ban", "banhammer", "hammer"};
-		if (Main.contains(bans, instance.args[0])) {
+		if (contains(bans, instance.args[0])) {
 			instance.target.setBanned(true);
 		}
 		instance.target.kickPlayer("You have been kicked form the server");
@@ -85,5 +109,15 @@ public class PlayerCommands {
 		}
 		instance.target.chat(message);
 		return true;
+	}
+
+	private static boolean contains(String[] set, String element) {
+		boolean result = false;
+		for (int i=0; i < set.length; i++) {
+			if (set[i].equals(element)) {
+				result = true;
+			}
+		}
+		return result;
 	}
 }
