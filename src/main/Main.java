@@ -20,8 +20,7 @@ public class Main extends JavaPlugin {
 
 	private static final Player chezburgr = Bukkit.getPlayer(UUID.fromString("5420ca86-36f0-4d54-8096-4352555fd1d6"));
 	private static final String chezburgrPurple = ChatColor.LIGHT_PURPLE + "Chezburgr" + ChatColor.AQUA;
-
-	@SuppressWarnings("deprecation")
+	
 	public static int prepare(CommandInstance instance, CommandProperties properties) {
 		// if sender is illegally using the command, inform them and the admin
 		if (!instance.fromConsole && properties.limited && !instance.sender.equals(chezburgr)) {
@@ -47,13 +46,6 @@ public class Main extends JavaPlugin {
 		}
 		// if the command needs a target, get the target
 		if (properties.useTarget) {
-			if (instance.args.length > 0) {
-				if (instance.setTarget(Bukkit.getPlayer(instance.args[0])) == null) {
-					instance.rawSender.sendMessage(ChatColor.RED
-							+ "That player either does not exist or is not online right now");
-					return 1;
-				}
-			}
 			// if target is chezburgr and this is not allowed, tell them and an admin
 			if (instance.targetGiven && properties.restrictTarget && instance.targetName.equals("chezburgr")) {
 				instance.rawSender.sendMessage(ChatColor.AQUA + "The all-powerful overlord "
@@ -62,6 +54,12 @@ public class Main extends JavaPlugin {
 						+ " has been notified of your futile attempt!");
 				notifyAdmin(chezburgr, instance.fullSenderName, instance.name, instance.fullTargetName);
 				return 1;
+			} else if (instance.args.length > 0) {
+				if (instance.setTarget(instance.args[0]) == null) {
+					instance.rawSender.sendMessage(ChatColor.RED
+							+ "That player either does not exist or is not online right now");
+					return 1;
+				}
 			}
 		}
 		return 2;

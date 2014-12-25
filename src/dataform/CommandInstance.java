@@ -1,5 +1,7 @@
 package dataform;
 
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -36,12 +38,26 @@ public class CommandInstance {
 		}
 	}
 	
-	public Player setTarget(Player target) {
+	private Player setTarget(Player target) {
 		this.target = target;
 		this.targetName = target.getName().toLowerCase();
 		this.targetGiven = true;
 		this.fullTargetName = target.getName();
 		return this.target;
+	}
+	
+	@SuppressWarnings("deprecation")
+	public Player setTarget(String target) {
+		Player targetPlayer;
+		if ((targetPlayer = Bukkit.getPlayer(target)) != null)
+			return this.setTarget(targetPlayer);
+		else
+			return null;
+	}
+	
+	// A shortcut to reporting error messages
+	public void error(String message) {
+		this.rawSender.sendMessage(ChatColor.RED + message);
 	}
 
 }
