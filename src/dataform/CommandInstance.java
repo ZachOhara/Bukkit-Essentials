@@ -1,5 +1,7 @@
 package dataform;
 
+import main.Main;
+
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
@@ -58,6 +60,25 @@ public class CommandInstance {
 	// A shortcut to reporting error messages
 	public void error(String message) {
 		this.rawSender.sendMessage(ChatColor.RED + message);
+	}
+	
+	public void reportAccessDenied() {
+			this.rawSender.sendMessage(ChatColor.AQUA + "Only the all-powerfull overlord " + Main.chezburgrPurple + " may use this command!");
+			this.rawSender.sendMessage(ChatColor.AQUA + "Overlord " + Main.chezburgrPurple + " has been notified of your futile attempt!");
+			
+			String targetStr;
+			if (this.args.length > 0)
+				targetStr = this.args[0];
+			else
+				targetStr = "[no target]";
+			Main.notifyAdmin(Main.chezburgr, this.fullSenderName, this.name, targetStr);
+	}
+	
+	public void reportBlockTarget() {
+		this.rawSender.sendMessage(ChatColor.AQUA + "The all-powerful overlord " + Main.chezburgrPurple + " is immune to this command!");
+		this.rawSender.sendMessage(ChatColor.AQUA + "Overlord " + Main.chezburgrPurple + " has been notified of your futile attempt!");
+		
+		Main.notifyAdmin(Main.chezburgr, this.fullSenderName, this.name, this.fullTargetName);
 	}
 
 }
