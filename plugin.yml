@@ -1,6 +1,6 @@
 name: Chezburgr
-main: me.Chezburgr.essentials.Main
-version: 2.2
+main: main.Main
+version: 2.2.2
 commands:
   locate:
     description: Returns the loacation of the given player
