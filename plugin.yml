@@ -1,6 +1,6 @@
 name: Chezburgr
-main: main.Main
-version: 2.2.2
+main: com.zachohara.chezburgr.main.Main
+version: 2.2.3
 commands:
   locate:
     description: Returns the loacation of the given player

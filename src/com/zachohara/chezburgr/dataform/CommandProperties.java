@@ -1,4 +1,4 @@
-package dataform;
+package com.zachohara.chezburgr.dataform;
 
 public class CommandProperties {
 	

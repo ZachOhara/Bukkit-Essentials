@@ -1,6 +1,6 @@
-package data;
+package com.zachohara.chezburgr.data;
 
-import dataform.CommandProperties;
+import com.zachohara.chezburgr.dataform.CommandProperties;
 
 public class Commands {
 	

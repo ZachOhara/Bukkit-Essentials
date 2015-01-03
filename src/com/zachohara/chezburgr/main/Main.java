@@ -1,4 +1,4 @@
-package main;
+package com.zachohara.chezburgr.main;
 
 //import java.util.logging.Logger;
 import java.util.UUID;
@@ -10,11 +10,11 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import data.Commands;
-import data.ConsoleCommands;
-import data.PlayerCommands;
-import dataform.CommandInstance;
-import dataform.CommandProperties;
+import com.zachohara.chezburgr.data.Commands;
+import com.zachohara.chezburgr.data.ConsoleCommands;
+import com.zachohara.chezburgr.data.PlayerCommands;
+import com.zachohara.chezburgr.dataform.CommandInstance;
+import com.zachohara.chezburgr.dataform.CommandProperties;
 
 public class Main extends JavaPlugin {
 

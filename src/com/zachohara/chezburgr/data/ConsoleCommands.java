@@ -1,8 +1,8 @@
-package data;
+package com.zachohara.chezburgr.data;
 
 import org.bukkit.ChatColor;
 
-import dataform.CommandInstance;
+import com.zachohara.chezburgr.dataform.CommandInstance;
 
 public class ConsoleCommands extends PlayerCommands {
 	

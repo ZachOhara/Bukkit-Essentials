@@ -1,10 +1,10 @@
-package data;
+package com.zachohara.chezburgr.data;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 
-import dataform.CommandInstance;
+import com.zachohara.chezburgr.dataform.CommandInstance;
 
 public class PlayerCommands {
 	

@@ -1,11 +1,11 @@
-package dataform;
-
-import main.Main;
+package com.zachohara.chezburgr.dataform;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+
+import com.zachohara.chezburgr.main.Main;
 
 public class CommandInstance {
 
