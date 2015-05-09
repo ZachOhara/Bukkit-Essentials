@@ -1,5 +1,5 @@
 # Chezburgr's Bukkit Essentials
-
+--------------------------------
 This is a plugin I wrote a long while ago. It adds some extra commands to any server running the Craftbukkit implementation of Minecraft. It is last confirmed to work on version 1.7.9 R2 of Craftbukkit. The commands and their functionality are outlined below.
 
 I will probably not ever support this software ever again, but if you have a way to improve it, feel free to submit a pull request.
@@ -58,6 +58,6 @@ This command behaves similarly to SpeakFor, but it is not limited to only chat m
 
 ### Takedown
 
-Usage: `/takedown <player> ['ban']
+Usage: `/takedown <player> ['ban']`
 
 The Takedown command should be reserved only for emergencies. The takedown command can only be used by players with admin privileges. When the command is used, the specified player will be teleported immmediately to the player that sent the command, and killed. This is different from the KillPlayer command in that the KillPlayer command will kill the player at their current location, with their items falling on to the ground wherever they are, while this command will teleport the player to an admin before killing them, so that all items may be safely recovered. If the word "ban" is sent as a third argument to the command, the targeted player will be kicked and banned from the server immediately following their death.
