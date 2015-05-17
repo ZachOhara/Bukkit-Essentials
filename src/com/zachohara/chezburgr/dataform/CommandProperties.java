@@ -16,19 +16,19 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 
 package com.zachohara.chezburgr.dataform;
 
 public class CommandProperties {
-	
+
 	public int argsMin;
 	public int argsMax;
 	public boolean limited;
 	public boolean args;
 	public boolean useTarget;
 	public boolean restrictTarget;
-	
+
 	public CommandProperties(boolean limited, int argsMin, int argsMax, boolean useTarget, boolean restrictTarget) {
 		this.argsMin = argsMin;
 		this.argsMax = argsMax;

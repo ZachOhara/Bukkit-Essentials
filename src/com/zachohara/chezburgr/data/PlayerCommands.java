@@ -16,7 +16,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 
 package com.zachohara.chezburgr.data;
 
@@ -27,7 +27,7 @@ import org.bukkit.Location;
 import com.zachohara.chezburgr.dataform.CommandInstance;
 
 public class PlayerCommands {
-	
+
 	public static boolean doCommand(CommandInstance instance) {
 		switch(instance.name) {
 		case "locate":
@@ -52,14 +52,14 @@ public class PlayerCommands {
 			return false;
 		}
 	}
-	
+
 	public static boolean locate(CommandInstance instance) {
 		Location loc = instance.target.getLocation();
 		String locString = ChatColor.GREEN + "(" + loc.getBlockX() + ", " + loc.getBlockY() + ", " + loc.getBlockZ() + ")";
 		instance.rawSender.sendMessage(ChatColor.WHITE + instance.target.getName() + ChatColor.AQUA + " is currently at position " + locString);
 		return true;
 	}
-	
+
 	@SuppressWarnings("deprecation")
 	public static boolean takedown(CommandInstance instance) {
 		Location senderLoc = instance.sender.getLocation();
@@ -72,14 +72,14 @@ public class PlayerCommands {
 		instance.target.kickPlayer("You have been kicked form the server");
 		return true;
 	}
-	
+
 	public static boolean killplayer(CommandInstance instance) {
 		instance.target.damage((double) 20);
 		instance.target.sendMessage(ChatColor.WHITE + instance.fullSenderName + ChatColor.AQUA + " killed you with magic");
 		instance.rawSender.sendMessage(ChatColor.AQUA + "You have killed " + ChatColor.WHITE + instance.fullTargetName + ChatColor.AQUA + " with magic");
 		return true;
 	}
-	
+
 	public static boolean getrekt(CommandInstance instance) {
 		if (instance.targetGiven) {
 			instance.target.sendMessage(ChatColor.WHITE + instance.fullSenderName + ChatColor.AQUA + " has rekt you!");
@@ -90,12 +90,12 @@ public class PlayerCommands {
 		}
 		return true;
 	}
-	
+
 	public static boolean ping(CommandInstance instance) {
 		instance.rawSender.sendMessage("Pong!");
 		return true;
 	}
-	
+
 	public static boolean afk(CommandInstance instance, boolean away) {
 		String message = " is no longer AFK";
 		if (away) {
@@ -112,7 +112,7 @@ public class PlayerCommands {
 		}
 		return true;
 	}
-	
+
 	public static boolean speakfor(CommandInstance instance) {
 		String message = "";
 		for (int i = 1; i < instance.args.length; i++) {

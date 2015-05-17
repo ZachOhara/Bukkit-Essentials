@@ -16,7 +16,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 
 package com.zachohara.chezburgr.dataform;
 
@@ -40,7 +40,7 @@ public class CommandInstance {
 	public String targetName;
 	public String fullTargetName;
 	public boolean targetGiven;
-	
+
 	public CommandInstance(CommandSender rawSender, String command, String[] args) {
 		this.rawSender = rawSender;
 		this.name = command.toLowerCase();
@@ -59,7 +59,7 @@ public class CommandInstance {
 			this.fullSenderName = "The Console";
 		}
 	}
-	
+
 	private Player setTarget(Player target) {
 		this.target = target;
 		this.targetName = target.getName().toLowerCase();
@@ -67,7 +67,7 @@ public class CommandInstance {
 		this.fullTargetName = target.getName();
 		return this.target;
 	}
-	
+
 	@SuppressWarnings("deprecation")
 	public Player setTarget(String target) {
 		Player targetPlayer;
@@ -76,28 +76,28 @@ public class CommandInstance {
 		else
 			return null;
 	}
-	
+
 	// A shortcut to reporting error messages
 	public void error(String message) {
 		this.rawSender.sendMessage(ChatColor.RED + message);
 	}
-	
+
 	public void reportAccessDenied() {
-			this.rawSender.sendMessage(ChatColor.AQUA + "Only the all-powerfull overlord " + Main.chezburgrPurple + " may use this command!");
-			this.rawSender.sendMessage(ChatColor.AQUA + "Overlord " + Main.chezburgrPurple + " has been notified of your futile attempt!");
-			
-			String targetStr;
-			if (this.args.length > 0)
-				targetStr = this.args[0];
-			else
-				targetStr = "[no target]";
-			Main.notifyAdmin(Main.chezburgr, this.fullSenderName, this.name, targetStr);
+		this.rawSender.sendMessage(ChatColor.AQUA + "Only the all-powerfull overlord " + Main.chezburgrPurple + " may use this command!");
+		this.rawSender.sendMessage(ChatColor.AQUA + "Overlord " + Main.chezburgrPurple + " has been notified of your futile attempt!");
+
+		String targetStr;
+		if (this.args.length > 0)
+			targetStr = this.args[0];
+		else
+			targetStr = "[no target]";
+		Main.notifyAdmin(Main.chezburgr, this.fullSenderName, this.name, targetStr);
 	}
-	
+
 	public void reportBlockTarget() {
 		this.rawSender.sendMessage(ChatColor.AQUA + "The all-powerful overlord " + Main.chezburgrPurple + " is immune to this command!");
 		this.rawSender.sendMessage(ChatColor.AQUA + "Overlord " + Main.chezburgrPurple + " has been notified of your futile attempt!");
-		
+
 		Main.notifyAdmin(Main.chezburgr, this.fullSenderName, this.name, this.fullTargetName);
 	}
 

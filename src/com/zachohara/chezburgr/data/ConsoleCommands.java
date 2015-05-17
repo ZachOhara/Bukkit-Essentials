@@ -16,7 +16,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 
 package com.zachohara.chezburgr.data;
 
@@ -25,7 +25,7 @@ import org.bukkit.ChatColor;
 import com.zachohara.chezburgr.dataform.CommandInstance;
 
 public class ConsoleCommands extends PlayerCommands {
-	
+
 	public static boolean doCommand(CommandInstance instance) {
 		switch(instance.name) {
 		case "takedown":

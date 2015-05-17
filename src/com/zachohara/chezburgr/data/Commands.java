@@ -15,14 +15,14 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 
 package com.zachohara.chezburgr.data;
 
 import com.zachohara.chezburgr.dataform.CommandProperties;
 
 public class Commands {
-	
+
 	public static final CommandProperties LOCATE = new CommandProperties(true, 1, 1, true, true);
 	public static final CommandProperties TAKEDOWN = new CommandProperties(true, 1, 2, true, true);
 	public static final CommandProperties KILLPLAYER = new CommandProperties(true, 1, 1, true, true);
@@ -32,7 +32,7 @@ public class Commands {
 	public static final CommandProperties NOAFK = AFK;
 	public static final CommandProperties SPEAKFOR = new CommandProperties(false, 2, -1, true, true);
 	public static final CommandProperties FORCECHAT = new CommandProperties(true, 2, -1, true, true);
-	
+
 	public static CommandProperties getProperties(String command) {
 		switch (command) {
 		case "locate":
@@ -57,5 +57,5 @@ public class Commands {
 			return null;
 		}
 	}
-	
+
 }

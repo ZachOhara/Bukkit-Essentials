@@ -15,7 +15,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 
 package com.zachohara.chezburgr.main;
 
@@ -38,7 +38,7 @@ public class Main extends JavaPlugin {
 
 	public static final Player chezburgr = Bukkit.getPlayer(UUID.fromString("5420ca86-36f0-4d54-8096-4352555fd1d6"));
 	public static final String chezburgrPurple = ChatColor.LIGHT_PURPLE + "Chezburgr" + ChatColor.AQUA;
-	
+
 	public static int prepare(CommandInstance instance, CommandProperties properties) {
 		// if sender is illegally using the command, inform them and the admin
 		if (!instance.fromConsole && properties.limited && !instance.sender.equals(chezburgr)) {
@@ -70,7 +70,7 @@ public class Main extends JavaPlugin {
 		}
 		return 2;
 	}
-	
+
 	// overall method called by Bukkit when a registered command is sent
 	public boolean onCommand(CommandSender rawSender, Command rawCommand, String commandLabel, String[] args){
 		CommandInstance instance = new CommandInstance(rawSender, rawCommand.getName().toLowerCase(), args);
@@ -87,12 +87,12 @@ public class Main extends JavaPlugin {
 				return PlayerCommands.doCommand(instance);
 		}
 	}
-	
+
 	// squeal to the admin and to the specified player that $sender used $command on $target
 	public static void notifyAdmin(Player player, String sender, String command, String target) {
 		String message = ChatColor.WHITE + sender + ChatColor.AQUA
-						+ " has attempted to use " + ChatColor.WHITE + "/" + command
-						+ ChatColor.AQUA + " on " + ChatColor.WHITE + target;
+				+ " has attempted to use " + ChatColor.WHITE + "/" + command
+				+ ChatColor.AQUA + " on " + ChatColor.WHITE + target;
 		if (player != null)
 			player.sendMessage(message);
 		Bukkit.getConsoleSender().sendMessage(message);
