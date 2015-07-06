@@ -18,14 +18,14 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.zachohara.chezburgr.dataform;
+package io.github.zachohara.chezburgr.dataform;
+
+import io.github.zachohara.chezburgr.Main;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-
-import com.zachohara.chezburgr.main.Main;
 
 public class CommandInstance {
 

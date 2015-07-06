@@ -17,9 +17,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.zachohara.chezburgr.data;
+package io.github.zachohara.chezburgr.data;
 
-import com.zachohara.chezburgr.dataform.CommandProperties;
+import io.github.zachohara.chezburgr.dataform.CommandProperties;
 
 public class Commands {
 

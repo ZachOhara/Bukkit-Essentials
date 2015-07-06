@@ -18,7 +18,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.zachohara.chezburgr.dataform;
+package io.github.zachohara.chezburgr.dataform;
 
 public class CommandProperties {
 

@@ -17,7 +17,13 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.zachohara.chezburgr.main;
+package io.github.zachohara.chezburgr;
+
+import io.github.zachohara.chezburgr.data.Commands;
+import io.github.zachohara.chezburgr.data.ConsoleCommands;
+import io.github.zachohara.chezburgr.data.PlayerCommands;
+import io.github.zachohara.chezburgr.dataform.CommandInstance;
+import io.github.zachohara.chezburgr.dataform.CommandProperties;
 
 import java.util.UUID;
 
@@ -27,12 +33,6 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import com.zachohara.chezburgr.data.Commands;
-import com.zachohara.chezburgr.data.ConsoleCommands;
-import com.zachohara.chezburgr.data.PlayerCommands;
-import com.zachohara.chezburgr.dataform.CommandInstance;
-import com.zachohara.chezburgr.dataform.CommandProperties;
 
 public class Main extends JavaPlugin {
 
