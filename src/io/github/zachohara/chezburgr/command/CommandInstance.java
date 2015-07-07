@@ -41,7 +41,7 @@ public class CommandInstance {
 	public CommandInstance(CommandSender rawSender, Command rawCommand, String[] args) {
 		this.name = rawCommand.getName().toLowerCase();
 		this.arguments = args;
-		this.rules = Commands.valueOf(name);
+		this.rules = Commands.fromString(name);
 		this.initializeSender(rawSender);		
 		this.initializeSenderName();
 		this.initializeTarget();
@@ -70,7 +70,8 @@ public class CommandInstance {
 			this.sendError(StringUtil.ERROR_TOO_FEW_ARGS_MESSAGE);
 			return false;
 		}
-		if (this.arguments.length > this.rules.getMaxArgs()) {
+		if (this.rules.getMaxArgs() != -1
+				&& this.arguments.length > this.rules.getMaxArgs()) {
 			this.sendError(StringUtil.ERROR_TOO_MANY_ARGS_MESSAGE);
 			return false;
 		}
@@ -82,14 +83,13 @@ public class CommandInstance {
 		case NONE:
 			return true;
 		case RESTRICT_CHEZ:
-			if (!this.givenTarget.equalsIgnoreCase(PlayerUtil.getChezburgrName())) {
-				return true;
-			} else {
+			if (this.givenTarget.equalsIgnoreCase(PlayerUtil.getChezburgrName())) {
 				this.sendMessage(StringUtil.ERROR_CHEZBURGR_RESTRICTED_MESSAGE);
 				this.reportToAdmins(StringUtil.ERROR_NOT_CHEZBURGR_ADMIN_NOTIFICATION);
+				return false;
 			}
 		case ALL:
-			if (this.hasTarget()) {
+			if (this.hasTarget() || this.arguments.length == 0) {
 				return true;
 			} else {
 				this.sendError(StringUtil.ERROR_TARGET_OFFLINE);
@@ -111,7 +111,7 @@ public class CommandInstance {
 			else 
 				this.sendError(StringUtil.ERROR_NOT_OP_MESSAGE);
 		case CHEZ_ONLY:
-			if (PlayerUtil.playerIsChezburgr(this.targetPlayer)) {
+			if (PlayerUtil.playerIsChezburgr(this.senderPlayer)) {
 				return true;
 			} else {
 				this.sendMessage(StringUtil.ERROR_NOT_CHEZBURGR_MESSAGE);
@@ -119,10 +119,6 @@ public class CommandInstance {
 			}
 		}
 		return false;
-	}
-	
-	public void executeCommand() {
-		//TODO
 	}
 	
 	public void sendTargetMessage(String message) {
@@ -144,7 +140,7 @@ public class CommandInstance {
 	public void reportToAdmins(String rawMessage) {
 		String message = StringUtil.parseString(rawMessage, this);
 		Bukkit.getConsoleSender().sendMessage(message);
-		PlayerUtil.getChezburgr().sendMessage(message);
+		PlayerUtil.sendChezburgr(message);
 	}
 	
 	public String getName() {
@@ -202,8 +198,8 @@ public class CommandInstance {
 			this.givenTarget = this.arguments[0];
 		else
 			this.givenTarget = "";
-		if (this.rules.getTargetable() != Commands.Target.NONE)
-			this.targetPlayer = Bukkit.getPlayer(givenTarget);
+		if (this.rules.getTargetable() != Commands.Target.NONE && this.givenTarget != "")
+			this.targetPlayer = Bukkit.getPlayer(this.givenTarget);
 		if (this.hasTarget())
 			this.targetName = this.targetPlayer.getName();
 		else

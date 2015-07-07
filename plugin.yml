@@ -1,6 +1,6 @@
 name: Chezburgr
 main: io.github.zachohara.chezburgr.Main
-version: 3.0
+version: 3.1
 commands:
   locate:
     description: Returns the loacation of the given player
@@ -27,5 +27,5 @@ commands:
     description: Force a chat message or command as another player
     usage: /forcechat <player> <message>
   takedown:
-    description: shut down rouge players and take their inventory
+    description: Shut down rouge players and take their inventory
     usage: /takedown <player> ['ban']

@@ -20,8 +20,6 @@ import io.github.zachohara.chezburgr.command.CommandInstance;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
-import org.bukkit.plugin.PluginDescriptionFile;
-import org.bukkit.plugin.java.JavaPlugin;
 
 public class StringUtil {
 
@@ -35,22 +33,13 @@ public class StringUtil {
 	public static final String ERROR_TOO_FEW_ARGS_MESSAGE = "Not enough arguments!";
 	public static final String ERROR_TOO_MANY_ARGS_MESSAGE = "Too many arguments!";
 	public static final String ERROR_TARGET_OFFLINE = "%gt either is not online right now or"
-			+ " doesn't exist";
+			+ " doesn't exist.";
 	public static final String ERROR_NOT_CHEZBURGR_MESSAGE = "Only the all-powerful "
 			+ "%chez may use this command!\nOverlord %chez has been notified of your futile attempt!";
-	public static final String ERROR_NOT_CHEZBURGR_ADMIN_NOTIFICATION = "%s has tried to use /%c on "
+	public static final String ERROR_NOT_CHEZBURGR_ADMIN_NOTIFICATION = "%s has tried to use %c on "
 			+ "overlord %chez!";
 	public static final String ERROR_CHEZBURGR_RESTRICTED_MESSAGE = "You cannot use this command on"
 			+ " the all-powerful %chez!\nOverlord %chez has been notified of your futile attempt!";
-
-	public static String getLoadMessage(String status, JavaPlugin plugin) {
-		PluginDescriptionFile description = plugin.getDescription();
-		String message = ChatColor.WHITE + "[" + description.getName() + "]"
-				+ " " + TEXTCOLOR + status
-				+ CHEZCOLOR + description.getFullName()
-				+ " " + TEXTCOLOR + description.getVersion();
-		return message;
-	}
 
 	public static String getLocationString(Location loc) {
 		return LOCATIONCOLOR + "(" + loc.getBlockX() + ", "
@@ -72,14 +61,14 @@ public class StringUtil {
 				{"%s", source.getSenderName()},
 				{"%t", source.getTargetName()},
 				{"%gt", source.getGivenTarget()},
-				{"%c", source.getName()}
+				{"%c", "/" + source.getName()}
 		};
 
 		message = color + message;
 
 		for (String[] parseKey : parsingKeys) {
-			String substitute = NAMECOLOR + parseKey[1] + TEXTCOLOR;
-			while (message.indexOf(parseKey[0]) != 0) {
+			String substitute = NAMECOLOR + parseKey[1] + color;
+			while (message.indexOf(parseKey[0]) != -1) {
 				int index = message.indexOf(parseKey[0]);
 				String a = message.substring(0, index);
 				String b = message.substring(index + parseKey[0].length());

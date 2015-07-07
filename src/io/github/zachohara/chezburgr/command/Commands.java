@@ -23,7 +23,7 @@ public enum Commands {
 	KILLPLAYER("killplayer", 1, 1, Source.OP_ONLY, Target.RESTRICT_CHEZ),
 	GETREKT("getrekt", 0, 1, Source.ALL, Target.RESTRICT_CHEZ),
 	PING("ping", 0, 0, Source.ALL, Target.NONE),
-	AFK("afk", 0, 0, Source.ALL, Target.ALL),
+	AFK("afk", 0, 1, Source.ALL, Target.ALL),
 	NOAFK("noafk", AFK),
 	SPEAKFOR("speakfor", 2, -1, Source.ALL, Target.RESTRICT_CHEZ),
 	FORCECHAT("forcechat", 2, -1, Source.OP_ONLY, Target.RESTRICT_CHEZ);
@@ -85,8 +85,8 @@ public enum Commands {
 		return targetable;
 	}
 	
-	public Commands fromString(String label) {
-		Commands[] allCommands = this.getClass().getEnumConstants();
+	public static Commands fromString(String label) {
+		Commands[] allCommands = Commands.class.getEnumConstants();
 		for (Commands c : allCommands) {
 			if (c.getName().equals(label))
 				return c;

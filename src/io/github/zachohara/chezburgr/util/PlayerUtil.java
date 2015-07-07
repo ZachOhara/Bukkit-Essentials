@@ -26,7 +26,11 @@ public class PlayerUtil {
 	public static final UUID chezburgr = UUID.fromString("5420ca86-36f0-4d54-8096-4352555fd1d6");
 	
 	public static boolean playerIsChezburgr(Player other) {
-		return other.getUniqueId().equals(chezburgr);
+		return other.getName().equalsIgnoreCase("Chezburgr");
+	}
+	
+	public static boolean chezburgrIsOnline() {
+		return getChezburgr() != null;
 	}
 	
 	public static Player getChezburgr() {
@@ -35,6 +39,11 @@ public class PlayerUtil {
 	
 	public static String getChezburgrName() {
 		return "Chezburgr";
+	}
+	
+	public static void sendChezburgr(String message) {
+		if (chezburgrIsOnline())
+			getChezburgr().sendMessage(message);
 	}
 
 }

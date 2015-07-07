@@ -39,8 +39,13 @@ public enum Executable {
 		this.implement = implement;
 	}
 	
-	public Implementation getImplementation() {
-		return this.implement;
+	public static Implementation fromString(String name) {
+		Executable[] all = Executable.class.getEnumConstants();
+		for (Executable exe : all) {
+			if (exe.implement.getName().equals(name))
+				return exe.implement;
+		}
+		return null;
 	}
 	
 	private static class Locate extends Implementation {
@@ -73,10 +78,16 @@ public enum Executable {
 			Location senderLoc = instance.getSenderPlayer().getLocation();
 			instance.getTargetPlayer().teleport(senderLoc);
 			instance.getTargetPlayer().setHealth(0.0);
-			if (instance.getArguments().length >= 1
+			if (instance.getArguments().length >= 2
 					&& instance.getArguments()[1].equalsIgnoreCase("ban"))
 				instance.getTargetPlayer().setBanned(true);
 			instance.getTargetPlayer().kickPlayer("You have been kicked from the Server");
+			return true;
+		}
+		
+		@Override
+		public boolean doConsoleCommand(CommandInstance instance) {
+			instance.sendError("This command is only usable as a player");
 			return true;
 		}
 		
