@@ -19,21 +19,16 @@ package io.github.zachohara.chezburgr.command;
 import io.github.zachohara.bukkit.common.command.CommandRules;
 
 /**
- * Represents the set of commands that this plugin is capable of handling, including
- * additional information for each command such as the range of expected amounts of
- * arguments, the required permission level necessary to use a command, and if the
- * command should require a target player.
- * <p>
- * This enumeration is one of two enumerations that represent the set of commands
- * supported by this plugin. Any single command will have two enumerable constants that
- * correspond to it. A command's constant listed here, in {@code Commands}, will contain
- * information about the details of the command, and its expected context. A command's
- * entry in the other enumeration, {@code Executable} will contain an executable object
- * that holds the 'main method' for the command.
+ * The {@code Rules} enumeration represents the set of commands that this plugin
+ * supports, including additional information for each command such as the range of
+ * expected amounts of arguments, the required permission level necessary to use a
+ * command, and if the command should require a target player.
  * 
  * @author Zach Ohara
+ * 
+ * @see {@link io.github.zachohara.bukkit.common.command.CommandRules CommandRules}
  */
-public enum Commands implements CommandRules {
+public enum Rules implements CommandRules {
 	
 	LOCATE("locate", 1, 1, Source.OP_ONLY, Target.RESTRICT_ADMIN),
 	TAKEDOWN("takedown", 1, 2, Source.ADMIN_ONLY, Target.RESTRICT_ADMIN),
@@ -71,14 +66,14 @@ public enum Commands implements CommandRules {
 	private Target targetable;
 	
 	/**
-	 * Constructs a new {@code Commands} object based on the required information.
+	 * Constructs a new {@code Rules} object based on the required information.
 	 * @param name see instance variable {@link #name}
 	 * @param minArgs see instance variable {@link #minArgs}
 	 * @param maxArgs see instance variable {@link #maxArgs}
 	 * @param access see instanace variable {@link #accessible}
 	 * @param target see instance variable {@link #targetable}
 	 */
-	private Commands(String name, int minArgs, int maxArgs, Source access, Target target) {
+	private Rules(String name, int minArgs, int maxArgs, Source access, Target target) {
 		this.name = name;
 		this.minArgs = minArgs;
 		this.maxArgs = maxArgs;
@@ -87,13 +82,13 @@ public enum Commands implements CommandRules {
 	}
 	
 	/**
-	 * Constructs a new {@code Commands} object that should exactly mimic the properties
+	 * Constructs a new {@code Rules} object that should exactly mimic the properties
 	 * of a different command.
 	 * @param name the name of this command.
 	 * @param alias the {@code Command} object that this object should mimic the
 	 * properties of.
 	 */
-	private Commands(String name, Commands alias) {
+	private Rules(String name, Rules alias) {
 		this.name = name;
 		this.minArgs = alias.minArgs;
 		this.maxArgs = alias.maxArgs;

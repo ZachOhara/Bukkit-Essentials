@@ -25,19 +25,16 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 
 /**
- * Represents the set of commands that this plugin is capable of handling, including
- * executable objects for each command that act as the main procedure for a command.
- * <p>
- * This enumeration is one of two enumerations that represent the set of commands
- * supported by this plugin. Any single command will have two enumerable constants that
- * correspond to it. A command's constant listed here, in {@code Executable}, will contain
- * an executable object that holds the 'main method' for the command. A command's
- * entry in the other enumeration, {@code Commands} will contain
- * information about the details of the command, and its expected context.
+ * The {@code Executables} enumeration represents the set of commands that this plugin
+ * supports, including additional information for each command such as the range of
+ * expected amounts of arguments, the required permission level necessary to use a
+ * command, and if the command should require a target player.
  * 
  * @author Zach Ohara
+ * 
+ * @see {@link io.github.zachohara.bukkit.common.command.CommandExecutables CommandExecutables}
  */
-public enum Executable implements CommandExecutables {
+public enum Executables implements CommandExecutables {
 	
 	LOCATE(new Locate()),
 	TAKEDOWN(new Takedown()),
@@ -59,7 +56,7 @@ public enum Executable implements CommandExecutables {
 	 * Constructs a new {@code Executable} object using a given implementation of a command.
 	 * @param implement the {@code Implementation} of the command.
 	 */
-	private Executable(Implementation implement) {
+	private Executables(Implementation implement) {
 		this.implement = implement;
 	}
 	
