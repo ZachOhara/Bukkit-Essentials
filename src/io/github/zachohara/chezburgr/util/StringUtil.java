@@ -89,10 +89,9 @@ public class StringUtil {
 			+ "%admin may use this command!\nOverlord %admin has been notified of your futile attempt!";
 	
 	/**
-	 * The message that is sent to admins to inform them of a (potential) misuse of a command.
+	 * The message that is sent to admins to inform them of a misuse of a command.
 	 */
-	public static final String ERROR_ADMIN_ONLY_ADMIN_NOTIFICATION = "%s has tried to use %c on "
-			+ "overlord %admin!";
+	public static final String ERROR_ADMIN_ONLY_ADMIN_NOTIFICATION = "%s has tried to use %c on %gt";
 	
 	/**
 	 * The message that is sent to players when they try to target the admin with a command
@@ -100,6 +99,12 @@ public class StringUtil {
 	 */
 	public static final String ERROR_ADMIN_PROTECTED_MESSAGE = "You cannot use this command on"
 			+ " the all-powerful %admin!\nOverlord %admin has been notified of your futile attempt!";
+	
+	/**
+	 * The message that is sent to admins to inform them of a misuse of a command.
+	 */
+	public static final String ERROR_ADMIN_PROTECTED_ADMIN_NOTIFICATION = "%s has tried to use %c on "
+			+ "overlord %admin!";
 
 	
 	/**

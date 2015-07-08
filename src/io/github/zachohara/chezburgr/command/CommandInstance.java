@@ -188,7 +188,7 @@ public class CommandInstance {
 		case RESTRICT_ADMIN:
 			if (this.givenTarget.equalsIgnoreCase(PlayerUtil.getAdminName())) {
 				this.sendMessage(StringUtil.ERROR_ADMIN_PROTECTED_MESSAGE);
-				this.reportToAdmins(StringUtil.ERROR_ADMIN_ONLY_ADMIN_NOTIFICATION);
+				this.reportToAdmins(StringUtil.ERROR_ADMIN_PROTECTED_ADMIN_NOTIFICATION);
 				return false;
 			}
 		case ALL:
