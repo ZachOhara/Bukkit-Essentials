@@ -14,13 +14,13 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package io.github.zachohara.chezburgr.plugin;
+package io.github.zachohara.bukkit.essentials.plugin;
 
 import io.github.zachohara.bukkit.common.command.CommandExecutables;
 import io.github.zachohara.bukkit.common.command.CommandRules;
 import io.github.zachohara.bukkit.common.plugin.CommonPlugin;
-import io.github.zachohara.chezburgr.command.Rules;
-import io.github.zachohara.chezburgr.command.Executables;
+import io.github.zachohara.bukkit.essentials.command.Executables;
+import io.github.zachohara.bukkit.essentials.command.Rules;
 
 /**
  * The main entry point for the Bukkit Essentials plugin

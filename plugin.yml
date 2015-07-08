@@ -1,5 +1,5 @@
 name: Chezburgr
-main: io.github.zachohara.chezburgr.plugin.Main
+main: io.github.zachohara.bukkit.essentials.plugin.Main
 version: 3.2
 commands:
   locate:
