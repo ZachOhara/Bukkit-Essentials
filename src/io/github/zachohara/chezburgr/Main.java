@@ -24,8 +24,16 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
 
+/**
+ * The entry point for the plugin.
+ *
+ * @author Zach Ohara
+ */
 public class Main extends JavaPlugin {
-	
+
+    /**
+     * {@inheritDoc}
+     */
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label,
 			String[] args) {

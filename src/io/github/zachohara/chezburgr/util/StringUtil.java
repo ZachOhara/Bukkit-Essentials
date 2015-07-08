@@ -21,40 +21,128 @@ import io.github.zachohara.chezburgr.command.CommandInstance;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 
+/**
+ * The {@code StringUtil} class provides static constants and methods that are useful in
+ * dealing with messages and other strings that are exchanged between the server and the
+ * players using it.
+ * 
+ * @author Zach Ohara
+ */
 public class StringUtil {
 
+	/**
+	 * The color that the server admin's name should appear in.
+	 */
 	public static final ChatColor CHEZCOLOR = ChatColor.LIGHT_PURPLE;
+	
+	/**
+	 * The color that standard text should appear in.
+	 */
 	public static final ChatColor TEXTCOLOR = ChatColor.AQUA;
+	
+	/**
+	 * The color that player's and command's names should appear in.
+	 */
 	public static final ChatColor NAMECOLOR = ChatColor.WHITE;
+	
+	/**
+	 * The color that error messages should appear in.
+	 */
 	public static final ChatColor ERRORCOLOR = ChatColor.RED;
+	
+	/**
+	 * The color that location coordinates should appear in.
+	 */
 	public static final ChatColor LOCATIONCOLOR = ChatColor.GREEN;
 
+	
+	/**
+	 * The message that is sent to players when they do not have permission to use a
+	 * given command.
+	 */
 	public static final String ERROR_NOT_OP_MESSAGE = "You must be an OP to use this command";
+	
+	/**
+	 * The message that is sent to players when a command they have submitted did not
+	 * have enough arguments sent with it.
+	 */
 	public static final String ERROR_TOO_FEW_ARGS_MESSAGE = "Not enough arguments!";
+	
+	/**
+	 * The message that is sent to players when a command they have submitted had too many
+	 * arguments sent with it.
+	 */
 	public static final String ERROR_TOO_MANY_ARGS_MESSAGE = "Too many arguments!";
+	
+	/**
+	 * The message that is sent to players when the target player they have specified as
+	 * a command argument is not a valid player.
+	 */
 	public static final String ERROR_TARGET_OFFLINE = "%gt either is not online right now or"
 			+ " doesn't exist.";
+	
+	/**
+	 * The message that is sent to players when they try to use a command that only the
+	 * admin can use.
+	 */
 	public static final String ERROR_NOT_CHEZBURGR_MESSAGE = "Only the all-powerful "
 			+ "%chez may use this command!\nOverlord %chez has been notified of your futile attempt!";
+	
+	/**
+	 * The message that is sent to admins to inform them of a (potential) misuse of a command.
+	 */
 	public static final String ERROR_NOT_CHEZBURGR_ADMIN_NOTIFICATION = "%s has tried to use %c on "
 			+ "overlord %chez!";
+	
+	/**
+	 * The message that is sent to players when they try to target the admin with a command
+	 * that the admin is protected against.
+	 */
 	public static final String ERROR_CHEZBURGR_RESTRICTED_MESSAGE = "You cannot use this command on"
 			+ " the all-powerful %chez!\nOverlord %chez has been notified of your futile attempt!";
 
+	
+	/**
+	 * Gets nicely formatted String with the coordinates of the given location.
+	 * @param loc the location to be formatted into a String.
+	 * @return a formatted String with the coordinates of the given location.
+	 */
 	public static String getLocationString(Location loc) {
 		return LOCATIONCOLOR + "(" + loc.getBlockX() + ", "
 				+ loc.getBlockY() + ", "
 				+ loc.getBlockZ() + ")";
 	}
 
+	/**
+	 * Parse and color a message, and substitute any of the supported shortcuts.
+	 * @param message the message to be parsed.
+	 * @param source the {@code CommandInstance} object that this message is attached to.
+	 * @return a colored and formatted version of the given message.
+	 * @see {@link #parseText(String, ChatColor, CommandInstance)}
+	 */
 	public static String parseString(String message, CommandInstance source) {
 		return parseText(message, TEXTCOLOR, source);
 	}
 
+	/**
+	 * Parse and color an error message, and substitute any of the supported shortcuts.
+	 * @param message the error message to be parsed.
+	 * @param source the {@code CommandInstance} object that this message is attached to.
+	 * @return a colored and formatted version of the given error message.
+	 * @see {@link #parseText(String, ChatColor, CommandInstance)}
+	 */
 	public static String parseError(String message, CommandInstance source) {
 		return parseText(message, ERRORCOLOR, source);
 	}
 
+	/**
+	 * Parse a given message, substitute any of the supported shortcuts, and color the
+	 * message to be the given color.
+	 * @param message the message to parse.
+	 * @param color the color that the message should appear in.
+	 * @param source the {@code CommandInstance} object that this message is attached to.
+	 * @return a colored and formatted version of the given message.
+	 */
 	private static String parseText(String message, ChatColor color, CommandInstance source) {		
 		final String[][] parsingKeys = {
 				{"%chez", CHEZCOLOR + "Chezburgr"},

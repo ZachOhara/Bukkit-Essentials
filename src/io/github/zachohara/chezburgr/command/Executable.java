@@ -21,6 +21,19 @@ import io.github.zachohara.chezburgr.util.StringUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 
+/**
+ * Represents the set of commands that this plugin is capable of handling, including
+ * executable objects for each command that act as the main procedure for a command.
+ * <p>
+ * This enumeration is one of two enumerations that represent the set of commands
+ * supported by this plugin. Any single command will have two enumerable constants that
+ * correspond to it. A command's constant listed here, in {@code Executable}, will contain
+ * an executable object that holds the 'main method' for the command. A command's
+ * entry in the other enumeration, {@code Commands} will contain
+ * information about the details of the command, and its expected context.
+ * 
+ * @author Zach Ohara
+ */
 public enum Executable {
 	
 	LOCATE(new Locate()),
@@ -33,12 +46,26 @@ public enum Executable {
 	SPEAKFOR(new Speakfor()),
 	FORCECHAT(new Forcechat());
 	
+	/**
+	 * The subclass of {@code Implementation} that contains an implementation for the
+	 * command.
+	 */
 	private Implementation implement;
 	
+	/**
+	 * Constructs a new {@code Executable} object using a given implementation of a command.
+	 * @param implement the {@code Implementation} of the command.
+	 */
 	private Executable(Implementation implement) {
 		this.implement = implement;
 	}
 	
+	/**
+	 * Gets the {@code Executable} object corresponding to the command with the given name.
+	 * @param name the name of the command that should be returned.
+	 * @return an {@code Implementation} object that contains the main procedure for the
+	 * given command.
+	 */
 	public static Implementation fromString(String name) {
 		Executable[] all = Executable.class.getEnumConstants();
 		for (Executable exe : all) {
@@ -48,6 +75,10 @@ public enum Executable {
 		return null;
 	}
 	
+	/**
+	 * The implementation for the 'locate' command.
+	 * @see {@link io.github.zachohara.chezburgr.command.Implementation Implementation}
+	 */
 	private static class Locate extends Implementation {
 		
 		@Override
@@ -64,7 +95,11 @@ public enum Executable {
 		}
 		
 	}
-	
+
+	/**
+	 * The implementation for the 'takedown' command.
+	 * @see {@link io.github.zachohara.chezburgr.command.Implementation Implementation}
+	 */
 	private static class Takedown extends Implementation {
 		
 		@Override
@@ -92,7 +127,11 @@ public enum Executable {
 		}
 		
 	}
-	
+
+	/**
+	 * The implementation for the 'killplayer' command.
+	 * @see {@link io.github.zachohara.chezburgr.command.Implementation Implementation}
+	 */
 	private static class Killplayer extends Implementation {
 		
 		@Override
@@ -109,7 +148,11 @@ public enum Executable {
 		}
 		
 	}
-	
+
+	/**
+	 * The implementation for the 'getrekt' command.
+	 * @see {@link io.github.zachohara.chezburgr.command.Implementation Implementation}
+	 */
 	private static class Getrekt extends Implementation {
 		
 		@Override
@@ -129,7 +172,11 @@ public enum Executable {
 		}
 		
 	}
-	
+
+	/**
+	 * The implementation for the 'ping' command.
+	 * @see {@link io.github.zachohara.chezburgr.command.Implementation Implementation}
+	 */
 	private static class Ping extends Implementation {
 		
 		@Override
@@ -144,7 +191,11 @@ public enum Executable {
 		}
 		
 	}
-	
+
+	/**
+	 * The implementation for the 'afk' command.
+	 * @see {@link io.github.zachohara.chezburgr.command.Implementation Implementation}
+	 */
 	private static class Afk extends Implementation {
 		
 		@Override
@@ -163,7 +214,11 @@ public enum Executable {
 		}
 		
 	}
-	
+
+	/**
+	 * The implementation for the 'noafk' command.
+	 * @see {@link io.github.zachohara.chezburgr.command.Implementation Implementation}
+	 */
 	private static class Noafk extends Implementation {
 		
 		@Override
@@ -182,7 +237,11 @@ public enum Executable {
 		}
 		
 	}
-	
+
+	/**
+	 * The implementation for the 'speakfor' command.
+	 * @see {@link io.github.zachohara.chezburgr.command.Implementation Implementation}
+	 */
 	private static class Speakfor extends Implementation {
 		
 		@Override
@@ -200,7 +259,11 @@ public enum Executable {
 		}
 		
 	}
-	
+
+	/**
+	 * The implementation for the 'forcechat' command.
+	 * @see {@link io.github.zachohara.chezburgr.command.Implementation Implementation}
+	 */
 	private static class Forcechat extends Implementation {
 		
 		@Override
