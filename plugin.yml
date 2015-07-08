@@ -1,6 +1,6 @@
-name: Chezburgr
+name: Essentials
 main: io.github.zachohara.bukkit.essentials.plugin.Main
-version: 3.2
+version: 3.3.1
 commands:
   locate:
     description: Returns the loacation of the given player
