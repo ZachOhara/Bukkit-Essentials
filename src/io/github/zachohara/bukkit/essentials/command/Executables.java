@@ -113,12 +113,6 @@ public enum Executables implements CommandExecutables {
 			return true;
 		}
 		
-		@Override
-		public boolean doConsoleCommand(CommandInstance instance) {
-			instance.sendError("This command is only usable as a player");
-			return true;
-		}
-		
 	}
 
 	/**

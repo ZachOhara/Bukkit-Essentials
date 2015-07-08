@@ -1,6 +1,6 @@
 name: Essentials
 main: io.github.zachohara.bukkit.essentials.plugin.Main
-version: 3.3.1
+version: 3.4
 commands:
   locate:
     description: Returns the loacation of the given player

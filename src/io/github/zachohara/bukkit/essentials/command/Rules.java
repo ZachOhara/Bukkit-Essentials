@@ -17,6 +17,7 @@
 package io.github.zachohara.bukkit.essentials.command;
 
 import io.github.zachohara.bukkit.common.command.CommandRules;
+import io.github.zachohara.bukkit.common.command.CommandRulesEntry;
 
 /**
  * The {@code Rules} enumeration represents the set of commands that this plugin
@@ -27,113 +28,32 @@ import io.github.zachohara.bukkit.common.command.CommandRules;
  * @author Zach Ohara
  * 
  * @see {@link io.github.zachohara.bukkit.common.command.CommandRules CommandRules}
+ * @see {@link io.github.zachohara.bukkit.common.command.CommandRulesEntry CommandRulesEntry}
  */
 public enum Rules implements CommandRules {
 	
-	LOCATE("locate", 1, 1, Source.OP_ONLY, Target.RESTRICT_ADMIN),
-	TAKEDOWN("takedown", 1, 2, Source.ADMIN_ONLY, Target.RESTRICT_ADMIN),
-	KILLPLAYER("killplayer", 1, 1, Source.OP_ONLY, Target.RESTRICT_ADMIN),
-	GETREKT("getrekt", 0, 1, Source.ALL, Target.RESTRICT_ADMIN),
-	PING("ping", 0, 0, Source.ALL, Target.NONE),
-	AFK("afk", 0, 1, Source.ALL, Target.ALL),
-	NOAFK("noafk", AFK),
-	SPEAKFOR("speakfor", 2, -1, Source.ALL, Target.RESTRICT_ADMIN),
-	FORCECHAT("forcechat", 2, -1, Source.OP_ONLY, Target.RESTRICT_ADMIN);
+	LOCATE(new CommandRulesEntry("locate", 1, 1, Source.OP_ONLY, Target.RESTRICT_ADMIN)),
+	TAKEDOWN(new CommandRulesEntry("takedown", 1, 2, Source.ADMIN_PLAYER_ONLY, Target.RESTRICT_ADMIN)),
+	KILLPLAYER(new CommandRulesEntry("killplayer", 1, 1, Source.OP_ONLY, Target.RESTRICT_ADMIN)),
+	GETREKT(new CommandRulesEntry("getrekt", 0, 1, Source.ALL, Target.RESTRICT_ADMIN)),
+	PING(new CommandRulesEntry("ping", 0, 0, Source.ALL, Target.NONE)),
+	AFK(new CommandRulesEntry("afk", 0, 1, Source.ALL, Target.ALL)),
+	NOAFK(new CommandRulesEntry("noafk", AFK.getRulesEntry())),
+	SPEAKFOR(new CommandRulesEntry("speakfor", 2, -1, Source.ALL, Target.RESTRICT_ADMIN)),
+	FORCECHAT(new CommandRulesEntry("forcechat", 2, -1, Source.OP_ONLY, Target.RESTRICT_ADMIN));
+
+	private CommandRulesEntry ruleEntry;
 	
-	/**
-	 * The name of the command, as it would be typed in the game or from a console.
-	 */
-	private String name;
-	
-	/**
-	 * The minimum amount of arguments that should be allowed for the command.
-	 */
-	private int minArgs;
-	
-	/**
-	 * The maximum amount of arguments that should be allowed for the command.
-	 */
-	private int maxArgs;
-	
-	/**
-	 * The type or range of sources that are allowed to use the command.
-	 */
-	private Source accessible;
-	
-	/**
-	 * The type or range of target players that should be allowed to use this command.
-	 */
-	private Target targetable;
-	
-	/**
-	 * Constructs a new {@code Rules} object based on the required information.
-	 * @param name see instance variable {@link #name}
-	 * @param minArgs see instance variable {@link #minArgs}
-	 * @param maxArgs see instance variable {@link #maxArgs}
-	 * @param access see instanace variable {@link #accessible}
-	 * @param target see instance variable {@link #targetable}
-	 */
-	private Rules(String name, int minArgs, int maxArgs, Source access, Target target) {
-		this.name = name;
-		this.minArgs = minArgs;
-		this.maxArgs = maxArgs;
-		this.accessible = access;
-		this.targetable = target;
-	}
-	
-	/**
-	 * Constructs a new {@code Rules} object that should exactly mimic the properties
-	 * of a different command.
-	 * @param name the name of this command.
-	 * @param alias the {@code Command} object that this object should mimic the
-	 * properties of.
-	 */
-	private Rules(String name, Rules alias) {
-		this.name = name;
-		this.minArgs = alias.minArgs;
-		this.maxArgs = alias.maxArgs;
-		this.accessible = alias.accessible;
-		this.targetable = alias.targetable;
+	private Rules(CommandRulesEntry rules) {
+		this.ruleEntry = rules;
 	}
 	
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public String getName() {
-		return this.name;
-	}
-	
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public int getMinArgs() {
-		return minArgs;
-	}
-	
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public int getMaxArgs() {
-		return maxArgs;
-	}
-	
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public Source getAccessible() {
-		return accessible;
-	}
-	
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public Target getTargetable() {
-		return targetable;
+	public CommandRulesEntry getRulesEntry() {
+		return this.ruleEntry;
 	}
 
 }
