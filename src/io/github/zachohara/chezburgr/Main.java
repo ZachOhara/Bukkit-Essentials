@@ -16,9 +16,10 @@
 
 package io.github.zachohara.chezburgr;
 
-import io.github.zachohara.chezburgr.command.CommandInstance;
+import io.github.zachohara.bukkit.common.command.CommandInstance;
+import io.github.zachohara.bukkit.common.command.Implementation;
+import io.github.zachohara.chezburgr.command.Commands;
 import io.github.zachohara.chezburgr.command.Executable;
-import io.github.zachohara.chezburgr.command.Implementation;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -37,7 +38,7 @@ public class Main extends JavaPlugin {
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label,
 			String[] args) {
-		CommandInstance instance = new CommandInstance(sender, command, args);
+		CommandInstance instance = new CommandInstance(sender, command, args, Commands.class);
 		boolean valid = instance.verifyCommand();
 		if (valid) {
 			Implementation i = Executable.fromString(instance.getName());

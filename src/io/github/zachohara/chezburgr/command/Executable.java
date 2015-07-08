@@ -16,7 +16,9 @@
 
 package io.github.zachohara.chezburgr.command;
 
-import io.github.zachohara.chezburgr.util.StringUtil;
+import io.github.zachohara.bukkit.common.command.CommandInstance;
+import io.github.zachohara.bukkit.common.command.Implementation;
+import io.github.zachohara.bukkit.common.util.StringUtil;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -77,7 +79,7 @@ public enum Executable {
 	
 	/**
 	 * The implementation for the 'locate' command.
-	 * @see {@link io.github.zachohara.chezburgr.command.Implementation Implementation}
+	 * @see {@link io.github.zachohara.bukkit.common.command.Implementation Implementation}
 	 */
 	private static class Locate extends Implementation {
 		
@@ -98,7 +100,7 @@ public enum Executable {
 
 	/**
 	 * The implementation for the 'takedown' command.
-	 * @see {@link io.github.zachohara.chezburgr.command.Implementation Implementation}
+	 * @see {@link io.github.zachohara.bukkit.common.command.Implementation Implementation}
 	 */
 	private static class Takedown extends Implementation {
 		
@@ -130,7 +132,7 @@ public enum Executable {
 
 	/**
 	 * The implementation for the 'killplayer' command.
-	 * @see {@link io.github.zachohara.chezburgr.command.Implementation Implementation}
+	 * @see {@link io.github.zachohara.bukkit.common.command.Implementation Implementation}
 	 */
 	private static class Killplayer extends Implementation {
 		
@@ -151,7 +153,7 @@ public enum Executable {
 
 	/**
 	 * The implementation for the 'getrekt' command.
-	 * @see {@link io.github.zachohara.chezburgr.command.Implementation Implementation}
+	 * @see {@link io.github.zachohara.bukkit.common.command.Implementation Implementation}
 	 */
 	private static class Getrekt extends Implementation {
 		
@@ -175,7 +177,7 @@ public enum Executable {
 
 	/**
 	 * The implementation for the 'ping' command.
-	 * @see {@link io.github.zachohara.chezburgr.command.Implementation Implementation}
+	 * @see {@link io.github.zachohara.bukkit.common.command.Implementation Implementation}
 	 */
 	private static class Ping extends Implementation {
 		
@@ -194,7 +196,7 @@ public enum Executable {
 
 	/**
 	 * The implementation for the 'afk' command.
-	 * @see {@link io.github.zachohara.chezburgr.command.Implementation Implementation}
+	 * @see {@link io.github.zachohara.bukkit.common.command.Implementation Implementation}
 	 */
 	private static class Afk extends Implementation {
 		
@@ -217,7 +219,7 @@ public enum Executable {
 
 	/**
 	 * The implementation for the 'noafk' command.
-	 * @see {@link io.github.zachohara.chezburgr.command.Implementation Implementation}
+	 * @see {@link io.github.zachohara.bukkit.common.command.Implementation Implementation}
 	 */
 	private static class Noafk extends Implementation {
 		
@@ -240,7 +242,7 @@ public enum Executable {
 
 	/**
 	 * The implementation for the 'speakfor' command.
-	 * @see {@link io.github.zachohara.chezburgr.command.Implementation Implementation}
+	 * @see {@link io.github.zachohara.bukkit.common.command.Implementation Implementation}
 	 */
 	private static class Speakfor extends Implementation {
 		
@@ -262,7 +264,7 @@ public enum Executable {
 
 	/**
 	 * The implementation for the 'forcechat' command.
-	 * @see {@link io.github.zachohara.chezburgr.command.Implementation Implementation}
+	 * @see {@link io.github.zachohara.bukkit.common.command.Implementation Implementation}
 	 */
 	private static class Forcechat extends Implementation {
 		

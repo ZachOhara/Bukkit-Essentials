@@ -16,6 +16,8 @@
 
 package io.github.zachohara.chezburgr.command;
 
+import io.github.zachohara.bukkit.common.command.CommandRules;
+
 /**
  * Represents the set of commands that this plugin is capable of handling, including
  * additional information for each command such as the range of expected amounts of
@@ -31,7 +33,7 @@ package io.github.zachohara.chezburgr.command;
  * 
  * @author Zach Ohara
  */
-public enum Commands {
+public enum Commands implements CommandRules {
 	
 	LOCATE("locate", 1, 1, Source.OP_ONLY, Target.RESTRICT_ADMIN),
 	TAKEDOWN("takedown", 1, 2, Source.ADMIN_ONLY, Target.RESTRICT_ADMIN),
@@ -100,81 +102,43 @@ public enum Commands {
 	}
 	
 	/**
-	 * Gets the name of the command, as it would be typed in the game or from a console.
-	 * @return the name of the command, as it would be typed in the game or from a
-	 * console.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public String getName() {
 		return this.name;
 	}
 	
 	/**
-	 * Gets the minimum amount of arguments that should be allowed for the command.
-	 * @return the minimum amount of arguments that should be allowed for the command.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public int getMinArgs() {
 		return minArgs;
 	}
-
+	
 	/**
-	 * Gets the maximum amount of arguments that should be allowed for the command.
-	 * @return the maximum amount of arguments that should be allowed for the command.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public int getMaxArgs() {
 		return maxArgs;
 	}
-
+	
 	/**
-	 * Gets the type or range of sources that are allowed to use the command.
-	 * @return the type or range of sources that are allowed to use the command.
-	 * @see {@link #Commands.Source Commands.Source}
+	 * {@inheritDoc}
 	 */
+	@Override
 	public Source getAccessible() {
 		return accessible;
 	}
-
+	
 	/**
-	 * Gets the type or range of target players that should be allowed to use this command.
-	 * @return the type or range of target players that should be allowed to use this
-	 * command.
-	 * @see {@link #Commands.Target Commands.Target}
+	 * {@inheritDoc}
 	 */
+	@Override
 	public Target getTargetable() {
 		return targetable;
-	}
-	
-	/**
-	 * Gets the {@code Commands} constant corresponding to a given name of a command.
-	 * @param label the name of the requested command.
-	 * @return
-	 */
-	public static Commands fromString(String label) {
-		Commands[] allCommands = Commands.class.getEnumConstants();
-		for (Commands c : allCommands) {
-			if (c.getName().equals(label))
-				return c;
-		}
-		return null;
-	}
-
-	/**
-	 * Represents the set of possible sources, or ranges of sources, that may be allowed
-	 * to use any single command.
-	 */
-	public static enum Source {
-		ALL,
-		OP_ONLY,
-		ADMIN_ONLY
-	}
-	
-	/**
-	 * Represents the set of possible targets, or ranges of targets, that may be allowed
-	 * to be targeted by any single command.
-	 */
-	public static enum Target {
-		NONE,
-		ALL,
-		RESTRICT_ADMIN
 	}
 
 }
