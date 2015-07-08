@@ -1,13 +1,15 @@
-# Chezburgr's Bukkit Essentials
---------------------------------
-This is a plugin I wrote a long while ago. It adds some extra commands to any server running the Craftbukkit implementation of Minecraft. It is last confirmed to work on version 1.7.9 R2 of Craftbukkit. The commands and their functionality are outlined below.
+# Bukkit Essentials
 
-I will probably not ever support this software ever again, but if you have a way to improve it, feel free to submit a pull request.
+This is a Bukkit server plugin I wrote a long while ago. It adds some extra commands to any server running the Craftbukkit implementation of Minecraft. It is last confirmed to work on version 1.7.9_R2 of Craftbukkit. The commands and their functionality are outlined below.
+
+This plugin uses my Bukkit Common library to run. The Bukkit Common library is also available on [GitHub](https://github.com/ZachOhara/Bukkit-Common).
+
+I will probably not ever *actually* support this software ever again, but if you have a way to improve it, feel free to submit a pull request. I may occasionally commit a few changes every now and again when I find out something's been broken. As the license states, there is absolutely no garunteed warranty on this software; that being said, if you have a problem using it, feel free to ask for help. If I'm feeling nice, I'll help you out (but I reserve the right to refuse help for any reason).
 
 This entire repository is made available under the GNU General Public License v3.0. A full copy of this license is available as the [LICENSE](LICENSE) file in this repository, or at [gnu.org/licenses](http://www.gnu.org/licenses/).
 
 ## Added Commands:
------------------------------
+
 ### Locate
 
 Usage: `/locate <player>`
