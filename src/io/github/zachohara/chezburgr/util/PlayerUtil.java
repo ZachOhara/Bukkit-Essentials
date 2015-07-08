@@ -35,7 +35,7 @@ public class PlayerUtil {
 	 * server, this UUID string should be changed to reflect the admin of the new server
 	 * (if any). 
 	 */
-	public static final UUID chezburgr = UUID.fromString("5420ca86-36f0-4d54-8096-4352555fd1d6");
+	public static final UUID adminUUID = UUID.fromString("5420ca86-36f0-4d54-8096-4352555fd1d6");
 	
 	/**
 	 * The name of the player that is the admin of the server that this plugin was
@@ -43,23 +43,23 @@ public class PlayerUtil {
 	 * server, this name string should be changed to reflect the admin of the new server
 	 * (if any). 
 	 */
-	public static final String chezburgrName = "Chezburgr";
+	public static final String adminName = "Chezburgr";
 	
 	/**
 	 * Determines if a given player is the admin of this server by comparing UUID values.
 	 * @param other the player to compare to the admin.
 	 * @return {@code true} if the given player is the local admin; {@code false} otherwise.
 	 */
-	public static boolean playerIsChezburgr(Player other) {
-		return other.getUniqueId().equals(chezburgr);
+	public static boolean playerIsAdmin(Player other) {
+		return other.getUniqueId().equals(adminUUID);
 	}
 	
 	/**
 	 * Determines if the local admin is online.
 	 * @return {@code true} if the admin is currently online; {@code false} otherwise;
 	 */
-	public static boolean chezburgrIsOnline() {
-		return getChezburgr() != null;
+	public static boolean adminIsOnline() {
+		return getAdmin() != null;
 	}
 	
 	/**
@@ -67,8 +67,8 @@ public class PlayerUtil {
 	 * is returned if the admin is currently offline.
 	 * @return the admin of this server.
 	 */
-	public static Player getChezburgr() {
-		return Bukkit.getPlayer(chezburgr);
+	public static Player getAdmin() {
+		return Bukkit.getPlayer(adminUUID);
 	}
 	
 	/**
@@ -76,17 +76,17 @@ public class PlayerUtil {
 	 * currently online.
 	 * @return the name of the admin.
 	 */
-	public static String getChezburgrName() {
-		return chezburgrName;
+	public static String getAdminName() {
+		return adminName;
 	}
 	
 	/**
 	 * Sends a given message to the admin of this server.
 	 * @param message the message to be sent to the admin.
 	 */
-	public static void sendChezburgr(String message) {
-		if (chezburgrIsOnline())
-			getChezburgr().sendMessage(message);
+	public static void sendAdmin(String message) {
+		if (adminIsOnline())
+			getAdmin().sendMessage(message);
 	}
 
 }

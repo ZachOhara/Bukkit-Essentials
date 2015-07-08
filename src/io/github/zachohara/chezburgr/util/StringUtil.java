@@ -33,7 +33,7 @@ public class StringUtil {
 	/**
 	 * The color that the server admin's name should appear in.
 	 */
-	public static final ChatColor CHEZCOLOR = ChatColor.LIGHT_PURPLE;
+	public static final ChatColor ADMINCOLOR = ChatColor.LIGHT_PURPLE;
 	
 	/**
 	 * The color that standard text should appear in.
@@ -85,21 +85,21 @@ public class StringUtil {
 	 * The message that is sent to players when they try to use a command that only the
 	 * admin can use.
 	 */
-	public static final String ERROR_NOT_CHEZBURGR_MESSAGE = "Only the all-powerful "
-			+ "%chez may use this command!\nOverlord %chez has been notified of your futile attempt!";
+	public static final String ERROR_ADMIN_ONLY_MESSAGE = "Only the all-powerful "
+			+ "%admin may use this command!\nOverlord %admin has been notified of your futile attempt!";
 	
 	/**
 	 * The message that is sent to admins to inform them of a (potential) misuse of a command.
 	 */
-	public static final String ERROR_NOT_CHEZBURGR_ADMIN_NOTIFICATION = "%s has tried to use %c on "
-			+ "overlord %chez!";
+	public static final String ERROR_ADMIN_ONLY_ADMIN_NOTIFICATION = "%s has tried to use %c on "
+			+ "overlord %admin!";
 	
 	/**
 	 * The message that is sent to players when they try to target the admin with a command
 	 * that the admin is protected against.
 	 */
-	public static final String ERROR_CHEZBURGR_RESTRICTED_MESSAGE = "You cannot use this command on"
-			+ " the all-powerful %chez!\nOverlord %chez has been notified of your futile attempt!";
+	public static final String ERROR_ADMIN_PROTECTED_MESSAGE = "You cannot use this command on"
+			+ " the all-powerful %admin!\nOverlord %admin has been notified of your futile attempt!";
 
 	
 	/**
@@ -145,7 +145,7 @@ public class StringUtil {
 	 */
 	private static String parseText(String message, ChatColor color, CommandInstance source) {		
 		final String[][] parsingKeys = {
-				{"%chez", CHEZCOLOR + "Chezburgr"},
+				{"%admin", ADMINCOLOR + PlayerUtil.getAdminName()},
 				{"%s", source.getSenderName()},
 				{"%t", source.getTargetName()},
 				{"%gt", source.getGivenTarget()},

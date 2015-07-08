@@ -33,15 +33,15 @@ package io.github.zachohara.chezburgr.command;
  */
 public enum Commands {
 	
-	LOCATE("locate", 1, 1, Source.OP_ONLY, Target.RESTRICT_CHEZ),
-	TAKEDOWN("takedown", 1, 2, Source.CHEZ_ONLY, Target.RESTRICT_CHEZ),
-	KILLPLAYER("killplayer", 1, 1, Source.OP_ONLY, Target.RESTRICT_CHEZ),
-	GETREKT("getrekt", 0, 1, Source.ALL, Target.RESTRICT_CHEZ),
+	LOCATE("locate", 1, 1, Source.OP_ONLY, Target.RESTRICT_ADMIN),
+	TAKEDOWN("takedown", 1, 2, Source.ADMIN_ONLY, Target.RESTRICT_ADMIN),
+	KILLPLAYER("killplayer", 1, 1, Source.OP_ONLY, Target.RESTRICT_ADMIN),
+	GETREKT("getrekt", 0, 1, Source.ALL, Target.RESTRICT_ADMIN),
 	PING("ping", 0, 0, Source.ALL, Target.NONE),
 	AFK("afk", 0, 1, Source.ALL, Target.ALL),
 	NOAFK("noafk", AFK),
-	SPEAKFOR("speakfor", 2, -1, Source.ALL, Target.RESTRICT_CHEZ),
-	FORCECHAT("forcechat", 2, -1, Source.OP_ONLY, Target.RESTRICT_CHEZ);
+	SPEAKFOR("speakfor", 2, -1, Source.ALL, Target.RESTRICT_ADMIN),
+	FORCECHAT("forcechat", 2, -1, Source.OP_ONLY, Target.RESTRICT_ADMIN);
 	
 	/**
 	 * The name of the command, as it would be typed in the game or from a console.
@@ -164,7 +164,7 @@ public enum Commands {
 	public static enum Source {
 		ALL,
 		OP_ONLY,
-		CHEZ_ONLY
+		ADMIN_ONLY
 	}
 	
 	/**
@@ -174,7 +174,7 @@ public enum Commands {
 	public static enum Target {
 		NONE,
 		ALL,
-		RESTRICT_CHEZ
+		RESTRICT_ADMIN
 	}
 
 }

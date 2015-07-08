@@ -185,10 +185,10 @@ public class CommandInstance {
 		switch (this.rules.getTargetable()) {
 		case NONE:
 			return true;
-		case RESTRICT_CHEZ:
-			if (this.givenTarget.equalsIgnoreCase(PlayerUtil.getChezburgrName())) {
-				this.sendMessage(StringUtil.ERROR_CHEZBURGR_RESTRICTED_MESSAGE);
-				this.reportToAdmins(StringUtil.ERROR_NOT_CHEZBURGR_ADMIN_NOTIFICATION);
+		case RESTRICT_ADMIN:
+			if (this.givenTarget.equalsIgnoreCase(PlayerUtil.getAdminName())) {
+				this.sendMessage(StringUtil.ERROR_ADMIN_PROTECTED_MESSAGE);
+				this.reportToAdmins(StringUtil.ERROR_ADMIN_ONLY_ADMIN_NOTIFICATION);
 				return false;
 			}
 		case ALL:
@@ -221,12 +221,12 @@ public class CommandInstance {
 				return true;
 			else 
 				this.sendError(StringUtil.ERROR_NOT_OP_MESSAGE);
-		case CHEZ_ONLY:
-			if (PlayerUtil.playerIsChezburgr(this.senderPlayer)) {
+		case ADMIN_ONLY:
+			if (PlayerUtil.playerIsAdmin(this.senderPlayer)) {
 				return true;
 			} else {
-				this.sendMessage(StringUtil.ERROR_NOT_CHEZBURGR_MESSAGE);
-				this.reportToAdmins(StringUtil.ERROR_NOT_CHEZBURGR_ADMIN_NOTIFICATION);
+				this.sendMessage(StringUtil.ERROR_ADMIN_ONLY_MESSAGE);
+				this.reportToAdmins(StringUtil.ERROR_ADMIN_ONLY_ADMIN_NOTIFICATION);
 			}
 		}
 		return false;
@@ -277,7 +277,7 @@ public class CommandInstance {
 	public void reportToAdmins(String message) {
 		String formattedMessage = StringUtil.parseString(message, this);
 		Bukkit.getConsoleSender().sendMessage(formattedMessage);
-		PlayerUtil.sendChezburgr(formattedMessage);
+		PlayerUtil.sendAdmin(formattedMessage);
 	}
 	
 	/**
