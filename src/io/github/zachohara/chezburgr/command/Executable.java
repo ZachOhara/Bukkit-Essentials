@@ -16,6 +16,7 @@
 
 package io.github.zachohara.chezburgr.command;
 
+import io.github.zachohara.bukkit.common.command.CommandExecutables;
 import io.github.zachohara.bukkit.common.command.CommandInstance;
 import io.github.zachohara.bukkit.common.command.Implementation;
 import io.github.zachohara.bukkit.common.util.StringUtil;
@@ -36,7 +37,7 @@ import org.bukkit.Location;
  * 
  * @author Zach Ohara
  */
-public enum Executable {
+public enum Executable implements CommandExecutables {
 	
 	LOCATE(new Locate()),
 	TAKEDOWN(new Takedown()),
@@ -63,18 +64,11 @@ public enum Executable {
 	}
 	
 	/**
-	 * Gets the {@code Executable} object corresponding to the command with the given name.
-	 * @param name the name of the command that should be returned.
-	 * @return an {@code Implementation} object that contains the main procedure for the
-	 * given command.
+	 * {@inheritDoc}
 	 */
-	public static Implementation fromString(String name) {
-		Executable[] all = Executable.class.getEnumConstants();
-		for (Executable exe : all) {
-			if (exe.implement.getName().equals(name))
-				return exe.implement;
-		}
-		return null;
+	@Override
+	public Implementation getImplementation() {
+		return this.implement;
 	}
 	
 	/**

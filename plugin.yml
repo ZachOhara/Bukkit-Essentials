@@ -1,6 +1,6 @@
 name: Chezburgr
-main: io.github.zachohara.chezburgr.Main
-version: 3.1.2
+main: io.github.zachohara.chezburgr.plugin.Main
+version: 3.2
 commands:
   locate:
     description: Returns the loacation of the given player
