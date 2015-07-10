@@ -109,7 +109,8 @@ public enum Executables implements CommandExecutables {
 			if (instance.getArguments().length >= 2
 					&& instance.getArguments()[1].equalsIgnoreCase("ban"))
 				instance.getTargetPlayer().setBanned(true);
-			instance.getTargetPlayer().kickPlayer("You have been kicked from the Server");
+			instance.getTargetPlayer().kickPlayer("You have been taken down by " + instance.getSenderName());
+			instance.broadcastMessage("%t was@admin ruthlessly taken down@text by the hero %s");
 			return true;
 		}
 		
@@ -153,7 +154,7 @@ public enum Executables implements CommandExecutables {
 				instance.sendTargetMessage("%s has rekt you!\nGet rekt, noob!");
 				instance.sendMessage("You have rekt %t");
 			} else {
-				instance.broadcaseMessage("Get rekt, noobs!");
+				instance.broadcastMessage("Get rekt, noobs!");
 			}
 			return true;
 		}
@@ -193,9 +194,9 @@ public enum Executables implements CommandExecutables {
 		@Override
 		public boolean doPlayerCommand(CommandInstance instance) {
 			if (instance.hasTarget()) {
-				instance.broadcaseMessage("%t is now AFK");
+				instance.broadcastMessage("%t is now AFK");
 			} else {
-				instance.broadcaseMessage("%s is now AFK");
+				instance.broadcastMessage("%s is now AFK");
 			}
 			return true;
 		}
@@ -216,9 +217,9 @@ public enum Executables implements CommandExecutables {
 		@Override
 		public boolean doPlayerCommand(CommandInstance instance) {
 			if (instance.hasTarget()) {
-				instance.broadcaseMessage("%t is no longer AFK");
+				instance.broadcastMessage("%t is no longer AFK");
 			} else {
-				instance.broadcaseMessage("%s is no longer AFK");
+				instance.broadcastMessage("%s is no longer AFK");
 			}
 			return true;
 		}

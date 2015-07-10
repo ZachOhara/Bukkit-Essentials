@@ -37,7 +37,7 @@ public enum Rules implements CommandRules {
 	KILLPLAYER(new CommandRulesEntry("killplayer", 1, 1, Source.OP_ONLY, Target.RESTRICT_ADMIN)),
 	GETREKT(new CommandRulesEntry("getrekt", 0, 1, Source.ALL, Target.RESTRICT_ADMIN)),
 	PING(new CommandRulesEntry("ping", 0, 0, Source.ALL, Target.NONE)),
-	AFK(new CommandRulesEntry("afk", 0, 1, Source.ALL, Target.ALL)),
+	AFK(new CommandRulesEntry("afk", 0, 1, Source.ALL, Target.IF_SENDER_OP)),
 	NOAFK(new CommandRulesEntry("noafk", AFK.getRulesEntry())),
 	SPEAKFOR(new CommandRulesEntry("speakfor", 2, -1, Source.ALL, Target.RESTRICT_ADMIN)),
 	FORCECHAT(new CommandRulesEntry("forcechat", 2, -1, Source.OP_ONLY, Target.RESTRICT_ADMIN));

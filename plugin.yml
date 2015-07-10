@@ -1,6 +1,9 @@
 name: Essentials
+version: 3.6.4
 main: io.github.zachohara.bukkit.essentials.plugin.Main
-version: 3.4
+depend: [BukkitCommon]
+description: Essential Bukkit features, wrapped into one plugin
+author: Zach Ohara
 commands:
   locate:
     description: Returns the loacation of the given player
