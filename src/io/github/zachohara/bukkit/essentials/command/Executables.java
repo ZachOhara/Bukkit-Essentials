@@ -25,17 +25,14 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 
 /**
- * The {@code Executables} enumeration represents the set of commands that this plugin
- * supports, including additional information for each command such as the range of
- * expected amounts of arguments, the required permission level necessary to use a
- * command, and if the command should require a target player.
+ * The {@code Executables} interface represents the set of commands supported by this
+ * plugin, and contains an executable object for each command that acts as the main
+ * procedure for the command.
  * 
  * @author Zach Ohara
- * 
- * @see {@link io.github.zachohara.bukkit.common.command.CommandExecutables CommandExecutables}
  */
 public enum Executables implements CommandExecutables {
-	
+
 	LOCATE(new Locate()),
 	TAKEDOWN(new Takedown()),
 	KILLPLAYER(new Killplayer()),
@@ -45,21 +42,22 @@ public enum Executables implements CommandExecutables {
 	NOAFK(new Noafk()),
 	SPEAKFOR(new Speakfor()),
 	FORCECHAT(new Forcechat());
-	
+
 	/**
 	 * The subclass of {@code Implementation} that contains an implementation for the
 	 * command.
 	 */
 	private Implementation implement;
-	
+
 	/**
-	 * Constructs a new {@code Executable} object using a given implementation of a command.
-	 * @param implement the {@code Implementation} of the command.
+	 * Constructs a new constant with the given implementation.
+	 * 
+	 * @param implement the implementation of the command.
 	 */
 	private Executables(Implementation implement) {
 		this.implement = implement;
 	}
-	
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -67,18 +65,23 @@ public enum Executables implements CommandExecutables {
 	public Implementation getImplementation() {
 		return this.implement;
 	}
-	
+
 	/**
 	 * The implementation for the 'locate' command.
-	 * @see {@link io.github.zachohara.bukkit.common.command.Implementation Implementation}
 	 */
 	private static class Locate extends Implementation {
-		
+
+		/**
+		 * {@inheritDoc}
+		 */
 		@Override
 		public String getName() {
 			return "locate";
 		}
-		
+
+		/**
+		 * {@inheritDoc}
+		 */
 		@Override
 		public boolean doPlayerCommand(CommandInstance instance) {
 			Location loc = instance.getTargetPlayer().getLocation();
@@ -86,20 +89,25 @@ public enum Executables implements CommandExecutables {
 			instance.sendMessage("%t is currently at " + locString);
 			return true;
 		}
-		
+
 	}
 
 	/**
 	 * The implementation for the 'takedown' command.
-	 * @see {@link io.github.zachohara.bukkit.common.command.Implementation Implementation}
 	 */
 	private static class Takedown extends Implementation {
-		
+
+		/**
+		 * {@inheritDoc}
+		 */
 		@Override
 		public String getName() {
 			return "takedown";
 		}
-		
+
+		/**
+		 * {@inheritDoc}
+		 */
 		@SuppressWarnings("deprecation")
 		@Override
 		public boolean doPlayerCommand(CommandInstance instance) {
@@ -113,20 +121,25 @@ public enum Executables implements CommandExecutables {
 			instance.broadcastMessage("%t was@admin ruthlessly taken down@text by the hero %s");
 			return true;
 		}
-		
+
 	}
 
 	/**
 	 * The implementation for the 'killplayer' command.
-	 * @see {@link io.github.zachohara.bukkit.common.command.Implementation Implementation}
 	 */
 	private static class Killplayer extends Implementation {
-		
+
+		/**
+		 * {@inheritDoc}
+		 */
 		@Override
 		public String getName() {
 			return "killplayer";
 		}
-		
+
+		/**
+		 * {@inheritDoc}
+		 */
 		@Override
 		public boolean doPlayerCommand(CommandInstance instance) {
 			instance.getTargetPlayer().setHealth(0.0);
@@ -134,20 +147,25 @@ public enum Executables implements CommandExecutables {
 			instance.sendMessage("You have killed %t with magic");
 			return true;
 		}
-		
+
 	}
 
 	/**
 	 * The implementation for the 'getrekt' command.
-	 * @see {@link io.github.zachohara.bukkit.common.command.Implementation Implementation}
 	 */
 	private static class Getrekt extends Implementation {
-		
+
+		/**
+		 * {@inheritDoc}
+		 */
 		@Override
 		public String getName() {
 			return "getrekt";
 		}
-		
+
+		/**
+		 * {@inheritDoc}
+		 */
 		@Override
 		public boolean doPlayerCommand(CommandInstance instance) {
 			if (instance.hasTarget()) {
@@ -158,39 +176,49 @@ public enum Executables implements CommandExecutables {
 			}
 			return true;
 		}
-		
+
 	}
 
 	/**
 	 * The implementation for the 'ping' command.
-	 * @see {@link io.github.zachohara.bukkit.common.command.Implementation Implementation}
 	 */
 	private static class Ping extends Implementation {
-		
+
+		/**
+		 * {@inheritDoc}
+		 */
 		@Override
 		public String getName() {
 			return "ping";
 		}
-		
+
+		/**
+		 * {@inheritDoc}
+		 */
 		@Override
 		public boolean doPlayerCommand(CommandInstance instance) {
 			instance.sendMessage("Pong!");
 			return true;
 		}
-		
+
 	}
 
 	/**
 	 * The implementation for the 'afk' command.
-	 * @see {@link io.github.zachohara.bukkit.common.command.Implementation Implementation}
 	 */
 	private static class Afk extends Implementation {
-		
+
+		/**
+		 * {@inheritDoc}
+		 */
 		@Override
 		public String getName() {
 			return "afk";
 		}
-		
+
+		/**
+		 * {@inheritDoc}
+		 */
 		@Override
 		public boolean doPlayerCommand(CommandInstance instance) {
 			if (instance.hasTarget()) {
@@ -200,20 +228,25 @@ public enum Executables implements CommandExecutables {
 			}
 			return true;
 		}
-		
+
 	}
 
 	/**
 	 * The implementation for the 'noafk' command.
-	 * @see {@link io.github.zachohara.bukkit.common.command.Implementation Implementation}
 	 */
 	private static class Noafk extends Implementation {
-		
+
+		/**
+		 * {@inheritDoc}
+		 */
 		@Override
 		public String getName() {
 			return "noafk";
 		}
-		
+
+		/**
+		 * {@inheritDoc}
+		 */
 		@Override
 		public boolean doPlayerCommand(CommandInstance instance) {
 			if (instance.hasTarget()) {
@@ -223,20 +256,25 @@ public enum Executables implements CommandExecutables {
 			}
 			return true;
 		}
-		
+
 	}
 
 	/**
 	 * The implementation for the 'speakfor' command.
-	 * @see {@link io.github.zachohara.bukkit.common.command.Implementation Implementation}
 	 */
 	private static class Speakfor extends Implementation {
-		
+
+		/**
+		 * {@inheritDoc}
+		 */
 		@Override
 		public String getName() {
 			return "speakfor";
 		}
-		
+
+		/**
+		 * {@inheritDoc}
+		 */
 		@Override
 		public boolean doPlayerCommand(CommandInstance instance) {
 			String message = "";
@@ -245,20 +283,25 @@ public enum Executables implements CommandExecutables {
 			Bukkit.getServer().broadcastMessage("<" + instance.getTargetName() + ">" + message);
 			return true;
 		}
-		
+
 	}
 
 	/**
 	 * The implementation for the 'forcechat' command.
-	 * @see {@link io.github.zachohara.bukkit.common.command.Implementation Implementation}
 	 */
 	private static class Forcechat extends Implementation {
-		
+
+		/**
+		 * {@inheritDoc}
+		 */
 		@Override
 		public String getName() {
 			return "forcechat";
 		}
-		
+
+		/**
+		 * {@inheritDoc}
+		 */
 		@Override
 		public boolean doPlayerCommand(CommandInstance instance) {
 			String message = "";
@@ -267,7 +310,7 @@ public enum Executables implements CommandExecutables {
 			instance.getTargetPlayer().chat(message);
 			return true;
 		}
-		
+
 	}
 
 }

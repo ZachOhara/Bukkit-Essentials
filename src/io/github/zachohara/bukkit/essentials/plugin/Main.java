@@ -23,7 +23,7 @@ import io.github.zachohara.bukkit.essentials.command.Executables;
 import io.github.zachohara.bukkit.essentials.command.Rules;
 
 /**
- * The main entry point for the Bukkit Essentials plugin
+ * The {@code Main} class is the entry point for plugin.
  * 
  * @author Zach Ohara
  */

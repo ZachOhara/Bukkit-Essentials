@@ -20,18 +20,14 @@ import io.github.zachohara.bukkit.common.command.CommandRules;
 import io.github.zachohara.bukkit.common.command.CommandRulesEntry;
 
 /**
- * The {@code Rules} enumeration represents the set of commands that this plugin
- * supports, including additional information for each command such as the range of
- * expected amounts of arguments, the required permission level necessary to use a
- * command, and if the command should require a target player.
+ * The {@code Rules} interface represents the set of commands supported by this
+ * plugin, and contains a {@code CommandRulesEntry} for each command, which defines
+ * information about the expected context of the command.
  * 
  * @author Zach Ohara
- * 
- * @see {@link io.github.zachohara.bukkit.common.command.CommandRules CommandRules}
- * @see {@link io.github.zachohara.bukkit.common.command.CommandRulesEntry CommandRulesEntry}
  */
 public enum Rules implements CommandRules {
-	
+
 	LOCATE(new CommandRulesEntry("locate", 1, 1, Source.OP_ONLY, Target.RESTRICT_ADMIN)),
 	TAKEDOWN(new CommandRulesEntry("takedown", 1, 2, Source.ADMIN_PLAYER_ONLY, Target.RESTRICT_ADMIN)),
 	KILLPLAYER(new CommandRulesEntry("killplayer", 1, 1, Source.OP_ONLY, Target.RESTRICT_ADMIN)),
@@ -42,12 +38,20 @@ public enum Rules implements CommandRules {
 	SPEAKFOR(new CommandRulesEntry("speakfor", 2, -1, Source.ALL, Target.RESTRICT_ADMIN)),
 	FORCECHAT(new CommandRulesEntry("forcechat", 2, -1, Source.OP_ONLY, Target.RESTRICT_ADMIN));
 
+	/**
+	 * The {@code CommandRulesEntry} associated with this command.
+	 */
 	private CommandRulesEntry ruleEntry;
-	
+
+	/**
+	 * Constructs a new {@code Rules} object with the given {@code CommandRulesEntry}.
+	 * 
+	 * @param rules the {@code CommandRulesEntry} for this command.
+	 */
 	private Rules(CommandRulesEntry rules) {
 		this.ruleEntry = rules;
 	}
-	
+
 	/**
 	 * {@inheritDoc}
 	 */
