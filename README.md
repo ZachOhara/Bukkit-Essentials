@@ -1,10 +1,12 @@
 # Bukkit Essentials
 
-This is a Bukkit server plugin I wrote a long while ago. It adds some extra commands to any server running the Craftbukkit implementation of Minecraft. It is last confirmed to work on version 1.7.9_R2 of Craftbukkit. The commands and their functionality are outlined below.
+Bukkit Essentials is a plugin for a Bukkit server that adds a small but useful set of command-line tools. It is last confirmed to work on version 1.7.9_R2 of Craftbukkit. The commands and their functionality are outlined below.
 
-This plugin uses my Bukkit Common library to run. The Bukkit Common library is also available on [GitHub](https://github.com/ZachOhara/Bukkit-Common).
+This plugin uses my Bukkit Common Library. The server *must* have that plugin installed for this plugin to work. The Bukkit Common Library can be downloaded from [GitHub](http://github.com/zachohara/bukkit-common)
 
-I will probably not ever *actually* support this software ever again, but if you have a way to improve it, feel free to submit a pull request. I may occasionally commit a few changes every now and again when I find out something's been broken. As the license states, there is absolutely no garunteed warranty on this software; that being said, if you have a problem using it, feel free to ask for help. If I'm feeling nice, I'll help you out (but I reserve the right to refuse help for any reason).
+Along with all of the source code, in the root folder of this repository you'll find [detailed documentation](javadoc) and a compiled .jar version of the project.
+
+I may or may not support this software in the future, but feel free to send a pull request if you think you have a way to improve it. There is no warranty on this software, and I am absolutely not going to do full-time tech support for it, but I will try to be as helpful as I can if you're having problems. Send me an email, or create a new issue.
 
 This entire repository is made available under the GNU General Public License v3.0. A full copy of this license is available as the [LICENSE](LICENSE) file in this repository, or at [gnu.org/licenses](http://www.gnu.org/licenses/).
 
@@ -40,7 +42,7 @@ Usage: `/afk [player]`
 
 The AFK command, sent without arguments, will announce to all players on the server that you are now AFK (away from the keyboard). If the player sending the command is an admin, or the command is being sent from the console, the name of a player can be specified, and the command will announce that the specified player is AFK instead of the sender.
 
-### NOAFK
+### NoAFK
 
 Usage: `/noafk [player]`
 
