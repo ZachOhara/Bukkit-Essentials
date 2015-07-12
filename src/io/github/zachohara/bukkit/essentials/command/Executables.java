@@ -19,7 +19,6 @@ package io.github.zachohara.bukkit.essentials.command;
 import io.github.zachohara.bukkit.common.command.CommandExecutables;
 import io.github.zachohara.bukkit.common.command.CommandInstance;
 import io.github.zachohara.bukkit.common.command.Implementation;
-import io.github.zachohara.bukkit.common.util.StringUtil;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -84,9 +83,7 @@ public enum Executables implements CommandExecutables {
 		 */
 		@Override
 		public boolean doPlayerCommand(CommandInstance instance) {
-			Location loc = instance.getTargetPlayer().getLocation();
-			String locString = StringUtil.getLocationString(loc);
-			instance.sendMessage("%t is currently at " + locString);
+			instance.sendMessage("%t is currently at %tloc");
 			return true;
 		}
 
