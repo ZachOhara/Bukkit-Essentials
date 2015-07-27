@@ -27,7 +27,7 @@ import org.bukkit.Location;
  * The {@code Executables} interface represents the set of commands supported by this
  * plugin, and contains an executable object for each command that acts as the main
  * procedure for the command.
- * 
+ *
  * @author Zach Ohara
  */
 public enum Executables implements CommandExecutables {
@@ -50,7 +50,7 @@ public enum Executables implements CommandExecutables {
 
 	/**
 	 * Constructs a new constant with the given implementation.
-	 * 
+	 *
 	 * @param implement the implementation of the command.
 	 */
 	private Executables(Implementation implement) {
@@ -111,9 +111,9 @@ public enum Executables implements CommandExecutables {
 			Location senderLoc = instance.getSenderPlayer().getLocation();
 			instance.getTargetPlayer().teleport(senderLoc);
 			instance.getTargetPlayer().setHealth(0.0);
-			if (instance.getArguments().length >= 2
-					&& instance.getArguments()[1].equalsIgnoreCase("ban"))
+			if (instance.getArguments().length >= 2 && instance.getArguments()[1].equalsIgnoreCase("ban")) {
 				instance.getTargetPlayer().setBanned(true);
+			}
 			instance.getTargetPlayer().kickPlayer("You have been taken down by " + instance.getSenderName());
 			instance.broadcastMessage("%t was@admin ruthlessly taken down@text by the hero %s");
 			return true;
@@ -275,8 +275,9 @@ public enum Executables implements CommandExecutables {
 		@Override
 		public boolean doPlayerCommand(CommandInstance instance) {
 			String message = "";
-			for (int i = 1; i < instance.getArguments().length; i++)
+			for (int i = 1; i < instance.getArguments().length; i++) {
 				message += " " + instance.getArguments()[i];
+			}
 			Bukkit.getServer().broadcastMessage("<" + instance.getTargetName() + ">" + message);
 			return true;
 		}
@@ -302,8 +303,9 @@ public enum Executables implements CommandExecutables {
 		@Override
 		public boolean doPlayerCommand(CommandInstance instance) {
 			String message = "";
-			for (int i = 1; i < instance.getArguments().length; i++)
+			for (int i = 1; i < instance.getArguments().length; i++) {
 				message += instance.getArguments()[i] + " ";
+			}
 			instance.getTargetPlayer().chat(message);
 			return true;
 		}

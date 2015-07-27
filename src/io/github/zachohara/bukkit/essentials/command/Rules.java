@@ -20,10 +20,10 @@ import io.github.zachohara.bukkit.common.command.CommandRules;
 import io.github.zachohara.bukkit.common.command.CommandRulesEntry;
 
 /**
- * The {@code Rules} interface represents the set of commands supported by this
- * plugin, and contains a {@code CommandRulesEntry} for each command, which defines
- * information about the expected context of the command.
- * 
+ * The {@code Rules} interface represents the set of commands supported by this plugin, and
+ * contains a {@code CommandRulesEntry} for each command, which defines information about
+ * the expected context of the command.
+ *
  * @author Zach Ohara
  */
 public enum Rules implements CommandRules {
@@ -45,7 +45,7 @@ public enum Rules implements CommandRules {
 
 	/**
 	 * Constructs a new {@code Rules} object with the given {@code CommandRulesEntry}.
-	 * 
+	 *
 	 * @param rules the {@code CommandRulesEntry} for this command.
 	 */
 	private Rules(CommandRulesEntry rules) {
