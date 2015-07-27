@@ -16,12 +16,6 @@ Download the "Essentials v___.jar" from the root folder of this repository, or c
 
 ## Added Commands:
 
-### Locate
-
-Usage: `/locate <player>`
-
-This command is usable only by players with admin privileges, or directly by the console. It will send you the <x, y, z> coordinates of the given player. You can press F3 while in-game to display the debug information, which includes your own coordinates. You can use these two things together to follow any other player in the game.
-
 ### Killplayer
 
 Usage: `/killplayer <player>`
