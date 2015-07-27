@@ -14,20 +14,18 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package io.github.zachohara.bukkit.essentials.plugin;
+package io.github.zachohara.bukkit.essentials;
 
 import io.github.zachohara.bukkit.common.command.CommandExecutables;
 import io.github.zachohara.bukkit.common.command.CommandRules;
 import io.github.zachohara.bukkit.common.plugin.CommonPlugin;
-import io.github.zachohara.bukkit.essentials.command.Executables;
-import io.github.zachohara.bukkit.essentials.command.Rules;
 
 /**
  * The {@code Main} class is the entry point for plugin.
  *
  * @author Zach Ohara
  */
-public class Main extends CommonPlugin {
+public class EssentialsPlugin extends CommonPlugin {
 
 	/**
 	 * {@inheritDoc}

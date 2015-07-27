@@ -14,7 +14,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package io.github.zachohara.bukkit.essentials.command;
+package io.github.zachohara.bukkit.essentials;
 
 import io.github.zachohara.bukkit.common.command.CommandRules;
 import io.github.zachohara.bukkit.common.command.CommandRulesEntry;

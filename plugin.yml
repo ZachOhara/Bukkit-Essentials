@@ -1,6 +1,6 @@
 name: Essentials
 version: 3.7
-main: io.github.zachohara.bukkit.essentials.plugin.Main
+main: io.github.zachohara.bukkit.essentials.EssentialsPlugin
 depend: [BukkitCommon]
 description: Essential Bukkit features, wrapped into one plugin
 author: Zach Ohara
