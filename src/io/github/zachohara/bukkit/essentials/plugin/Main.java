@@ -28,7 +28,7 @@ import io.github.zachohara.bukkit.essentials.command.Rules;
  * @author Zach Ohara
  */
 public class Main extends CommonPlugin {
-
+	
 	/**
 	 * {@inheritDoc}
 	 */
@@ -36,7 +36,7 @@ public class Main extends CommonPlugin {
 	public Class<? extends CommandRules> getCommandRuleSet() {
 		return Rules.class;
 	}
-
+	
 	/**
 	 * {@inheritDoc}
 	 */
@@ -44,5 +44,5 @@ public class Main extends CommonPlugin {
 	public Class<? extends CommandExecutables> getCommandExecutableSet() {
 		return Executables.class;
 	}
-
+	
 }
