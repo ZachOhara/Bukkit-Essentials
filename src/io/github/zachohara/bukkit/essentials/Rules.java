@@ -28,7 +28,6 @@ import io.github.zachohara.bukkit.common.command.CommandRulesEntry;
  */
 public enum Rules implements CommandRules {
 
-	LOCATE(new CommandRulesEntry("locate", 1, 1, Source.OP_ONLY, Target.RESTRICT_ADMIN)),
 	TAKEDOWN(new CommandRulesEntry("takedown", 1, 2, Source.ADMIN_PLAYER_ONLY, Target.RESTRICT_ADMIN)),
 	KILLPLAYER(new CommandRulesEntry("killplayer", 1, 1, Source.OP_ONLY, Target.RESTRICT_ADMIN)),
 	GETREKT(new CommandRulesEntry("getrekt", 0, 1, Source.ALL, Target.RESTRICT_ADMIN)),

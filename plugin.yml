@@ -1,13 +1,10 @@
 name: Essentials
-version: 3.7
+version: 3.8
 main: io.github.zachohara.bukkit.essentials.EssentialsPlugin
 depend: [BukkitCommon]
 description: Essential Bukkit features, wrapped into one plugin
 author: Zach Ohara
 commands:
-  locate:
-    description: Returns the loacation of the given player
-    usage: /locate <player>
   killplayer:
     description: Kills the given player
     usage: /killplayer <player>

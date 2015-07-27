@@ -32,7 +32,6 @@ import org.bukkit.Location;
  */
 public enum Executables implements CommandExecutables {
 
-	LOCATE(new Locate()),
 	TAKEDOWN(new Takedown()),
 	KILLPLAYER(new Killplayer()),
 	GETREKT(new Getrekt()),
@@ -63,30 +62,6 @@ public enum Executables implements CommandExecutables {
 	@Override
 	public Implementation getImplementation() {
 		return this.implement;
-	}
-
-	/**
-	 * The implementation for the 'locate' command.
-	 */
-	private static class Locate extends Implementation {
-
-		/**
-		 * {@inheritDoc}
-		 */
-		@Override
-		public String getName() {
-			return "locate";
-		}
-
-		/**
-		 * {@inheritDoc}
-		 */
-		@Override
-		public boolean doPlayerCommand(CommandInstance instance) {
-			instance.sendMessage("%t is currently at %tloc");
-			return true;
-		}
-
 	}
 
 	/**
