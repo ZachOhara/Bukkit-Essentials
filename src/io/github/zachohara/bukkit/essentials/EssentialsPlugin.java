@@ -21,7 +21,7 @@ import io.github.zachohara.bukkit.common.command.CommandRules;
 import io.github.zachohara.bukkit.common.plugin.CommonPlugin;
 
 /**
- * The {@code Main} class is the entry point for plugin.
+ * The {@code EssentialsPlugin} class is the entry point for plugin.
  *
  * @author Zach Ohara
  */
