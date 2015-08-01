@@ -1,6 +1,6 @@
 # Bukkit Essentials
 
-Bukkit Essentials is a plugin for a Bukkit server that adds a small but useful set of command-line tools. It is last confirmed to work on Bukkit version 1.7.9-R2. A full list of commands that this plugin adds is included below.
+Bukkit Essentials is a plugin for a Bukkit server that adds a small but useful set of miscellaneous command-line tools. It is last confirmed to work on Bukkit version 1.7.9-R2. A full list of commands that this plugin adds is included below.
 
 This plugin uses my Bukkit Common Library. The server *must* have that plugin installed for this plugin to work. The Bukkit Common Library can be downloaded from [GitHub](http://github.com/zachohara/bukkit-common)
 
