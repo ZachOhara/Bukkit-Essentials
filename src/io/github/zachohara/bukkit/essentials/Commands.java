@@ -16,66 +16,60 @@
 
 package io.github.zachohara.bukkit.essentials;
 
-import io.github.zachohara.bukkit.common.command.CommandExecutables;
-import io.github.zachohara.bukkit.common.command.CommandInstance;
-import io.github.zachohara.bukkit.common.command.Implementation;
-
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 
+import io.github.zachohara.bukkit.simpleplugin.command.CommandInstance;
+import io.github.zachohara.bukkit.simpleplugin.command.CommandSet;
+import io.github.zachohara.bukkit.simpleplugin.command.Implementation;
+import io.github.zachohara.bukkit.simpleplugin.command.Properties;
+import io.github.zachohara.bukkit.simpleplugin.command.Properties.Source;
+import io.github.zachohara.bukkit.simpleplugin.command.Properties.Target;
+
 /**
- * The {@code Executables} interface represents the set of commands supported by this
- * plugin, and contains an executable object for each command that acts as the main
- * procedure for the command.
+ * The {@code Rules} interface represents the set of commands supported by this plugin, and
+ * contains a {@code CommandRulesEntry} for each command, which defines information about
+ * the expected context of the command.
  *
  * @author Zach Ohara
  */
-public enum Executables implements CommandExecutables {
+public enum Commands implements CommandSet {
 
-	TAKEDOWN(new Takedown()),
-	KILLPLAYER(new Killplayer()),
-	GETREKT(new Getrekt()),
-	PING(new Ping()),
-	AFK(new Afk()),
-	NOAFK(new Noafk()),
-	SPEAKFOR(new Speakfor()),
-	FORCECHAT(new Forcechat());
-
+	TAKEDOWN(new Properties(1, 2, Source.ADMIN_PLAYER_ONLY, Target.RESTRICT_ADMIN, new Takedown())),
+	KILLPLAYER(new Properties(1, 1, Source.OP_ONLY, Target.RESTRICT_ADMIN, new Killplayer())),
+	GETREKT(new Properties(0, 1, Source.ALL, Target.RESTRICT_ADMIN, new Getrekt())),
+	PING(new Properties( 0, 0, Source.ALL, Target.NONE, new Ping())),
+	AFK(new Properties(0, 1, Source.ALL, Target.IF_SENDER_OP, new Afk())),
+	NOAFK(new Properties(AFK, new Noafk())),
+	SPEAKFOR(new Properties(2, -1, Source.ALL, Target.RESTRICT_ADMIN, new Speakfor())),
+	FORCECHAT(new Properties(2, -1, Source.OP_ONLY, Target.RESTRICT_ADMIN, new Forcechat()));
+	
 	/**
-	 * The subclass of {@code Implementation} that contains an implementation for the
-	 * command.
+	 * The {@code Properties} object specific to a single command.
 	 */
-	private Implementation implement;
-
+	private Properties properties;
+	
 	/**
-	 * Constructs a new constant with the given implementation.
+	 * Constructs a new {@code Commands} with the given {@code Properties} for this command. 
 	 *
-	 * @param implement the implementation of the command.
+	 * @param p the {@code Properties} for this command.
 	 */
-	private Executables(Implementation implement) {
-		this.implement = implement;
+	private Commands(Properties p) {
+		this.properties = p;
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Implementation getImplementation() {
-		return this.implement;
+	public Properties getProperties() {
+		return this.properties;
 	}
 
 	/**
 	 * The implementation for the 'takedown' command.
 	 */
 	private static class Takedown extends Implementation {
-
-		/**
-		 * {@inheritDoc}
-		 */
-		@Override
-		public String getName() {
-			return "takedown";
-		}
 
 		/**
 		 * {@inheritDoc}
@@ -105,14 +99,6 @@ public enum Executables implements CommandExecutables {
 		 * {@inheritDoc}
 		 */
 		@Override
-		public String getName() {
-			return "killplayer";
-		}
-
-		/**
-		 * {@inheritDoc}
-		 */
-		@Override
 		public boolean doPlayerCommand(CommandInstance instance) {
 			instance.getTargetPlayer().setHealth(0.0);
 			instance.sendTargetMessage("%s has killed you with magic");
@@ -126,14 +112,6 @@ public enum Executables implements CommandExecutables {
 	 * The implementation for the 'getrekt' command.
 	 */
 	private static class Getrekt extends Implementation {
-
-		/**
-		 * {@inheritDoc}
-		 */
-		@Override
-		public String getName() {
-			return "getrekt";
-		}
 
 		/**
 		 * {@inheritDoc}
@@ -160,14 +138,6 @@ public enum Executables implements CommandExecutables {
 		 * {@inheritDoc}
 		 */
 		@Override
-		public String getName() {
-			return "ping";
-		}
-
-		/**
-		 * {@inheritDoc}
-		 */
-		@Override
 		public boolean doPlayerCommand(CommandInstance instance) {
 			instance.sendMessage("Pong!");
 			return true;
@@ -179,14 +149,6 @@ public enum Executables implements CommandExecutables {
 	 * The implementation for the 'afk' command.
 	 */
 	private static class Afk extends Implementation {
-
-		/**
-		 * {@inheritDoc}
-		 */
-		@Override
-		public String getName() {
-			return "afk";
-		}
 
 		/**
 		 * {@inheritDoc}
@@ -212,14 +174,6 @@ public enum Executables implements CommandExecutables {
 		 * {@inheritDoc}
 		 */
 		@Override
-		public String getName() {
-			return "noafk";
-		}
-
-		/**
-		 * {@inheritDoc}
-		 */
-		@Override
 		public boolean doPlayerCommand(CommandInstance instance) {
 			if (instance.hasTarget()) {
 				instance.broadcastMessage("%t is no longer AFK");
@@ -240,14 +194,6 @@ public enum Executables implements CommandExecutables {
 		 * {@inheritDoc}
 		 */
 		@Override
-		public String getName() {
-			return "speakfor";
-		}
-
-		/**
-		 * {@inheritDoc}
-		 */
-		@Override
 		public boolean doPlayerCommand(CommandInstance instance) {
 			String message = "";
 			for (int i = 1; i < instance.getArguments().length; i++) {
@@ -263,15 +209,7 @@ public enum Executables implements CommandExecutables {
 	 * The implementation for the 'forcechat' command.
 	 */
 	private static class Forcechat extends Implementation {
-
-		/**
-		 * {@inheritDoc}
-		 */
-		@Override
-		public String getName() {
-			return "forcechat";
-		}
-
+		
 		/**
 		 * {@inheritDoc}
 		 */

@@ -16,31 +16,22 @@
 
 package io.github.zachohara.bukkit.essentials;
 
-import io.github.zachohara.bukkit.common.command.CommandExecutables;
-import io.github.zachohara.bukkit.common.command.CommandRules;
-import io.github.zachohara.bukkit.common.plugin.CommonPlugin;
+import io.github.zachohara.bukkit.simpleplugin.command.CommandSet;
+import io.github.zachohara.bukkit.simpleplugin.plugin.SimplePlugin;
 
 /**
  * The {@code EssentialsPlugin} class is the entry point for plugin.
  *
  * @author Zach Ohara
  */
-public class EssentialsPlugin extends CommonPlugin {
+public class EssentialsPlugin extends SimplePlugin {
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Class<? extends CommandRules> getCommandRuleSet() {
-		return Rules.class;
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public Class<? extends CommandExecutables> getCommandExecutableSet() {
-		return Executables.class;
+	public Class<? extends CommandSet> getCommandSet() {
+		return Commands.class;
 	}
 
 }

@@ -1,7 +1,7 @@
 name: Essentials
-version: 3.8
+version: 4.0-pre0
 main: io.github.zachohara.bukkit.essentials.EssentialsPlugin
-depend: [BukkitCommon]
+depend: [SimplePlugin]
 description: Essential Bukkit features, wrapped into one plugin
 author: Zach Ohara
 commands:
