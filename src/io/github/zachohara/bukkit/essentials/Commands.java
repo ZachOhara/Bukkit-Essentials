@@ -16,9 +16,6 @@
 
 package io.github.zachohara.bukkit.essentials;
 
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
-
 import io.github.zachohara.bukkit.simpleplugin.command.CommandInstance;
 import io.github.zachohara.bukkit.simpleplugin.command.CommandSet;
 import io.github.zachohara.bukkit.simpleplugin.command.Implementation;
@@ -26,9 +23,12 @@ import io.github.zachohara.bukkit.simpleplugin.command.Properties;
 import io.github.zachohara.bukkit.simpleplugin.command.Properties.Source;
 import io.github.zachohara.bukkit.simpleplugin.command.Properties.Target;
 
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
+
 /**
- * The {@code Commands} interface represents the set of commands supported by this plugin, and
- * contains a {@code Properties} object for each command.
+ * The {@code Commands} interface represents the set of commands supported by this plugin,
+ * and contains a {@code Properties} object for each command.
  *
  * @author Zach Ohara
  * @see Properties
@@ -38,19 +38,20 @@ public enum Commands implements CommandSet {
 	TAKEDOWN(new Properties(1, 2, Source.ADMIN_PLAYER_ONLY, Target.RESTRICT_ADMIN, new Takedown())),
 	KILLPLAYER(new Properties(1, 1, Source.OP_ONLY, Target.RESTRICT_ADMIN, new Killplayer())),
 	GETREKT(new Properties(0, 1, Source.ALL, Target.RESTRICT_ADMIN, new Getrekt())),
-	PING(new Properties( 0, 0, Source.ALL, Target.NONE, new Ping())),
+	PING(new Properties(0, 0, Source.ALL, Target.NONE, new Ping())),
 	AFK(new Properties(0, 1, Source.ALL, Target.IF_SENDER_OP, new Afk())),
 	NOAFK(new Properties(AFK, new Noafk())),
 	SPEAKFOR(new Properties(2, -1, Source.ALL, Target.RESTRICT_ADMIN, new Speakfor())),
 	FORCECHAT(new Properties(2, -1, Source.OP_ONLY, Target.RESTRICT_ADMIN, new Forcechat()));
-	
+
 	/**
 	 * The {@code Properties} object specific to a single command.
 	 */
 	private Properties properties;
-	
+
 	/**
-	 * Constructs a new {@code Commands} with the given {@code Properties} for this command. 
+	 * Constructs a new {@code Commands} with the given {@code Properties} for this
+	 * command.
 	 *
 	 * @param p the {@code Properties} for this command.
 	 */
@@ -209,7 +210,7 @@ public enum Commands implements CommandSet {
 	 * The implementation for the 'forcechat' command.
 	 */
 	private static class Forcechat extends Implementation {
-		
+
 		/**
 		 * {@inheritDoc}
 		 */
