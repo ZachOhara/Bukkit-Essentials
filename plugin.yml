@@ -1,5 +1,5 @@
 name: Essentials
-version: 4.0-pre0
+version: 4.0
 main: io.github.zachohara.bukkit.essentials.EssentialsPlugin
 depend: [SimplePlugin]
 description: Essential Bukkit features, wrapped into one plugin
