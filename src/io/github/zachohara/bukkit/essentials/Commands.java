@@ -27,11 +27,11 @@ import io.github.zachohara.bukkit.simpleplugin.command.Properties.Source;
 import io.github.zachohara.bukkit.simpleplugin.command.Properties.Target;
 
 /**
- * The {@code Rules} interface represents the set of commands supported by this plugin, and
- * contains a {@code CommandRulesEntry} for each command, which defines information about
- * the expected context of the command.
+ * The {@code Commands} interface represents the set of commands supported by this plugin, and
+ * contains a {@code Properties} object for each command.
  *
  * @author Zach Ohara
+ * @see Properties
  */
 public enum Commands implements CommandSet {
 
