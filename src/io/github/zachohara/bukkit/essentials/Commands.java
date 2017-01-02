@@ -1,4 +1,4 @@
-/* Copyright (C) 2015 Zach Ohara
+/* Copyright (C) 2017 Zach Ohara
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -59,9 +59,6 @@ public enum Commands implements CommandSet {
 		this.properties = p;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Properties getProperties() {
 		return this.properties;
@@ -72,9 +69,6 @@ public enum Commands implements CommandSet {
 	 */
 	private static class Takedown extends Implementation {
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@SuppressWarnings("deprecation")
 		@Override
 		public boolean doPlayerCommand(CommandInstance instance) {
@@ -96,9 +90,6 @@ public enum Commands implements CommandSet {
 	 */
 	private static class Killplayer extends Implementation {
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public boolean doPlayerCommand(CommandInstance instance) {
 			instance.getTargetPlayer().setHealth(0.0);
@@ -114,9 +105,6 @@ public enum Commands implements CommandSet {
 	 */
 	private static class Getrekt extends Implementation {
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public boolean doPlayerCommand(CommandInstance instance) {
 			if (instance.hasTarget()) {
@@ -135,9 +123,6 @@ public enum Commands implements CommandSet {
 	 */
 	private static class Ping extends Implementation {
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public boolean doPlayerCommand(CommandInstance instance) {
 			instance.sendMessage("Pong!");
@@ -151,9 +136,6 @@ public enum Commands implements CommandSet {
 	 */
 	private static class Afk extends Implementation {
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public boolean doPlayerCommand(CommandInstance instance) {
 			if (instance.hasTarget()) {
@@ -171,9 +153,6 @@ public enum Commands implements CommandSet {
 	 */
 	private static class Noafk extends Implementation {
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public boolean doPlayerCommand(CommandInstance instance) {
 			if (instance.hasTarget()) {
@@ -191,9 +170,6 @@ public enum Commands implements CommandSet {
 	 */
 	private static class Speakfor extends Implementation {
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public boolean doPlayerCommand(CommandInstance instance) {
 			String message = "";
@@ -211,9 +187,6 @@ public enum Commands implements CommandSet {
 	 */
 	private static class Forcechat extends Implementation {
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public boolean doPlayerCommand(CommandInstance instance) {
 			String message = "";

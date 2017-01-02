@@ -1,4 +1,4 @@
-/* Copyright (C) 2015 Zach Ohara
+/* Copyright (C) 2017 Zach Ohara
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -26,9 +26,6 @@ import io.github.zachohara.bukkit.simpleplugin.plugin.SimplePlugin;
  */
 public class EssentialsPlugin extends SimplePlugin {
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Class<? extends CommandSet> getCommandSet() {
 		return Commands.class;
