@@ -16,15 +16,15 @@
 
 package io.github.zachohara.bukkit.essentials;
 
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
+
 import io.github.zachohara.bukkit.simpleplugin.command.CommandInstance;
 import io.github.zachohara.bukkit.simpleplugin.command.CommandSet;
 import io.github.zachohara.bukkit.simpleplugin.command.Implementation;
 import io.github.zachohara.bukkit.simpleplugin.command.Properties;
 import io.github.zachohara.bukkit.simpleplugin.command.Properties.Source;
 import io.github.zachohara.bukkit.simpleplugin.command.Properties.Target;
-
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
 
 /**
  * The {@code Commands} interface represents the set of commands supported by this plugin,
@@ -75,10 +75,12 @@ public enum Commands implements CommandSet {
 			Location senderLoc = instance.getSenderPlayer().getLocation();
 			instance.getTargetPlayer().teleport(senderLoc);
 			instance.getTargetPlayer().setHealth(0.0);
-			if (instance.getArguments().length >= 2 && instance.getArguments()[1].equalsIgnoreCase("ban")) {
+			if (instance.getArguments().length >= 2
+					&& instance.getArguments()[1].equalsIgnoreCase("ban")) {
 				instance.getTargetPlayer().setBanned(true);
 			}
-			instance.getTargetPlayer().kickPlayer("You have been taken down by " + instance.getSenderName());
+			instance.getTargetPlayer()
+					.kickPlayer("You have been taken down by " + instance.getSenderName());
 			instance.broadcastMessage("%t was@admin ruthlessly taken down@text by the hero %s");
 			return true;
 		}
